@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=6 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://CameraCenterer.gd" id="2_r8wdn"]
@@ -8,6 +8,9 @@
 shader = ExtResource("3_fspt7")
 shader_parameter/projector_power = 0.497
 shader_parameter/vignette_param = 2.55
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhxj"]
+size = Vector2(27.4272, 84)
 
 [node name="Level1" type="Node2D"]
 
@@ -19,14 +22,16 @@ position = Vector2(-211.785, 232)
 polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270.39, 1444, 303, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-85.785, 658, -634.785, 536, -589.785, -155, -135.785, -185, -130.785, 390, 181.215, 419, 229.215, 433, 267.215, 462, 345.215, 507, 1328.21, 520, 3105.22, 584, 3199.22, -303, 3452.22, 622, 3146.22, 837, 1320.21, 699)
+polygon = PackedVector2Array(-85.785, 658, -634.785, 536, -589.785, -155, -135.785, -185, -130.785, 390, 181.215, 419, 229.215, 433, 267.215, 462, 350, 500, 1350, 500, 3105.22, 584, 3199.22, -303, 3452.22, 622, 3146.22, 837, 1320.21, 699)
 
 [node name="pandulak" parent="." instance=ExtResource("1_1j5ko")]
-position = Vector2(559, 147)
+position = Vector2(925, 440)
 player = 2
+speed_multiplier = 0.0
 
 [node name="pandulak2" parent="." instance=ExtResource("1_1j5ko")]
-position = Vector2(250, 194)
+position = Vector2(692, 440)
+speed_multiplier = 0.0
 
 [node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
 position = Vector2(434, 168)
@@ -45,5 +50,26 @@ material = SubResource("ShaderMaterial_fugcv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Krabice" type="RigidBody2D" parent="."]
+position = Vector2(779, 239.86)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
+position = Vector2(26.5, 1.14)
+scale = Vector2(4.12, 1)
+shape = SubResource("RectangleShape2D_eqhxj")
+
+[node name="ColorRect" type="ColorRect" parent="Krabice/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2

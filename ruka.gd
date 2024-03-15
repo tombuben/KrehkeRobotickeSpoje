@@ -3,7 +3,7 @@ class_name ruka extends Node2D
 @export var torque_strength : float = 1000
 @export var player : int = 0
 
-@export var upper_limit : float = 2.5
+@export var upper_limit : float = 2
 @export var lower_limit : float = 0
 
 @export var levost : bool
@@ -26,10 +26,10 @@ func init_ruka(set_player : int):
 		down_action = "Player2Down"
 		is_controller = true
 		
-	#if levost:
-	#	mover.rotate(-1.5)
-	#else :
-	#	mover.rotate(1.5)
+	if levost:
+		mover.rotate(-1.5)
+	else :
+		mover.rotate(1.5)
 	
 
 # Called when the node enters the scene tree for the first time.
