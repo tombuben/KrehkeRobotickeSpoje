@@ -44,8 +44,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if is_controller:
-		if levost:
-			print(mover.rotation)
 		var input_strenght = Input.get_axis(down_action, up_action)
 		mover.rotate(input_strenght * rotation_speed)
 		if mover.rotation < lower_limit:

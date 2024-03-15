@@ -1,11 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://fr2gabw8cqso"]
+[gd_scene load_steps=11 format=3 uid="uid://fr2gabw8cqso"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_tw3rc"]
 [ext_resource type="Texture2D" uid="uid://cna2ryes1bw81" path="res://art/ona/ona.jpg" id="2_tak5e"]
 [ext_resource type="Texture2D" uid="uid://p1sbcuoqfn75" path="res://art/ona/onakolo.png" id="3_g6j1w"]
+[ext_resource type="Texture2D" uid="uid://b4a0jgsgdndjs" path="res://art/ona/onaruka.png" id="4_yhfi3"]
+[ext_resource type="Texture2D" uid="uid://bopokpmxfmo11" path="res://art/ona/onapacka.png" id="5_evy8g"]
 [ext_resource type="Texture2D" uid="uid://cthr2qd7e12vc" path="res://art/ona/onatelo.png" id="6_do7r3"]
 [ext_resource type="Texture2D" uid="uid://ceptg82arg2hg" path="res://art/ona/onahlava.png" id="7_vtr4a"]
 [ext_resource type="Texture2D" uid="uid://c0lwgq4gj68is" path="res://art/ona/onanoha.png" id="8_qqbtc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0akk5"]
+radius = 5.0
+height = 50.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6omcm"]
+radius = 5.0
+height = 50.0
 
 [node name="pandulak" instance=ExtResource("1_tw3rc")]
 
@@ -21,15 +31,46 @@ texture = ExtResource("3_g6j1w")
 
 [node name="rameno" parent="telo/rukaLeva" index="0"]
 position = Vector2(12, -9)
+rotation = -0.959931
+
+[node name="Sisoun-ruka-leva" parent="telo/rukaLeva/rameno" index="0"]
+position = Vector2(14, 13)
+texture = ExtResource("4_yhfi3")
+flip_h = true
+
+[node name="sisoun-packa-prava" parent="telo/rukaLeva/rameno/Sisoun-ruka-leva" index="0"]
+position = Vector2(-79.9995, 210)
+texture = ExtResource("5_evy8g")
 
 [node name="StaticBody2D" parent="telo/rukaLeva/rameno" index="1"]
-position = Vector2(25, 35)
+position = Vector2(21.8783, 34.7324)
+rotation = -0.610865
+
+[node name="CollisionShape2D" parent="telo/rukaLeva/rameno/StaticBody2D" index="0"]
+position = Vector2(1.55383, -20.7506)
+shape = SubResource("CapsuleShape2D_0akk5")
 
 [node name="rameno" parent="telo/rukaPrava" index="0"]
 position = Vector2(-15, -11)
+rotation = 0.959931
+
+[node name="Sisoun-ruka-prava" parent="telo/rukaPrava/rameno" index="0"]
+position = Vector2(-12, 13)
+texture = ExtResource("4_yhfi3")
+flip_h = true
+
+[node name="sisoun-packa-prava" parent="telo/rukaPrava/rameno/Sisoun-ruka-prava" index="0"]
+position = Vector2(-70, 220)
+texture = ExtResource("5_evy8g")
+flip_h = true
 
 [node name="StaticBody2D" parent="telo/rukaPrava/rameno" index="1"]
-position = Vector2(-19, 35)
+position = Vector2(-16.6354, 35.962)
+rotation = 0.610865
+
+[node name="CollisionShape2D" parent="telo/rukaPrava/rameno/StaticBody2D" index="0"]
+position = Vector2(-3.77116, -19.3333)
+shape = SubResource("CapsuleShape2D_6omcm")
 
 [node name="Sisoun-telo" parent="telo" index="3"]
 position = Vector2(-4, 22)
