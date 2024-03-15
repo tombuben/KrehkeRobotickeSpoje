@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2myyy2dlm4ti"]
+[gd_scene load_steps=13 format=3 uid="uid://d2myyy2dlm4ti"]
 
 [ext_resource type="Script" path="res://kolo.gd" id="1_8e416"]
 [ext_resource type="Script" path="res://pandulak_script.gd" id="1_j6uh4"]
+[ext_resource type="Texture2D" uid="uid://crofsfjf38tq4" path="res://art/sisoun/sisoun-postava.png" id="2_ehvyi"]
+[ext_resource type="Texture2D" uid="uid://dcn3wc6gsokrb" path="res://art/sisoun/sisoun-kolecko.png" id="4_r7e3r"]
+[ext_resource type="Texture2D" uid="uid://clh7501p8cbld" path="res://art/sisoun/sisoun-telo.png" id="5_i18ex"]
+[ext_resource type="Texture2D" uid="uid://70hm3vid177x" path="res://art/sisoun/sisoun-hlava.png" id="6_atgsl"]
+[ext_resource type="Texture2D" uid="uid://c1414531v8pt" path="res://art/sisoun/sisoun-noha.png" id="7_ummov"]
+[ext_resource type="Texture2D" uid="uid://bbj7mtygx3blu" path="res://art/sisoun/sisoun-ruka.png" id="8_o1u8b"]
+[ext_resource type="Texture2D" uid="uid://c385upgdixbv0" path="res://art/sisoun/sisoun-packa.png" id="9_v4twp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87njb"]
 rough = true
@@ -17,6 +24,12 @@ height = 83.27
 position = Vector2(1, 2)
 script = ExtResource("1_j6uh4")
 
+[node name="Sisoun-postava" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4, -85)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ehvyi")
+
 [node name="kolo" type="RigidBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_87njb")
 center_of_mass_mode = 1
@@ -24,11 +37,13 @@ script = ExtResource("1_8e416")
 player = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kolo"]
-scale = Vector2(1, 0.95)
+scale = Vector2(0.275, 0.275)
 shape = SubResource("CircleShape2D_k35wg")
 
-[node name="Polygon2D" type="Polygon2D" parent="kolo"]
-polygon = PackedVector2Array(-80, -2, -59, -46, -11, -72, 47, -64, 82, -8, 56, 44, 5, 77, -50, 56)
+[node name="Sisoun-kolecko" type="Sprite2D" parent="kolo/CollisionShape2D"]
+position = Vector2(6, -8)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("4_r7e3r")
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 node_a = NodePath("../kolo")
@@ -42,7 +57,39 @@ center_of_mass_mode = 1
 center_of_mass = Vector2(0, 400)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo"]
+position = Vector2(1, 47)
 shape = SubResource("CapsuleShape2D_eivqm")
 
-[node name="Polygon2D" type="Polygon2D" parent="telo"]
-polygon = PackedVector2Array(-67, 44, -75, -103, 90, -101, 59, 59)
+[node name="Sisoun-telo" type="Sprite2D" parent="telo"]
+position = Vector2(1, 24)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("5_i18ex")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="telo"]
+position = Vector2(0, -46)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("6_atgsl")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="telo"]
+position = Vector2(0, 84.465)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_ummov")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="telo"]
+position = Vector2(-41, 19)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_o1u8b")
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="telo/Sisoun-ruka-prava"]
+position = Vector2(-39.9999, 310)
+texture = ExtResource("9_v4twp")
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="telo"]
+position = Vector2(39, 19)
+scale = Vector2(-0.1, 0.1)
+texture = ExtResource("8_o1u8b")
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="telo/Sisoun-ruka-leva"]
+position = Vector2(-40, 300)
+scale = Vector2(-1, 1)
+texture = ExtResource("9_v4twp")
