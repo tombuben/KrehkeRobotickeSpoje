@@ -8,7 +8,10 @@ var is_controller = false
 var right_action : String = ""
 var left_action : String = ""
 
-func init_kolo(set_player : int):
+var speed_boost : float = 1.0
+
+func init_kolo(set_player : int, speed_multiplier : float):
+	speed_boost = speed_multiplier
 	if set_player == 1:
 		right_action = "Player1Right"
 		left_action = "Player1Left"
@@ -29,4 +32,4 @@ func _ready():
 func _physics_process(delta):
 	if is_controller:
 		var velocity = Input.get_axis(left_action, right_action)
-		apply_torque_impulse(torque_strength * velocity)
+		apply_torque_impulse(torque_strength * velocity * speed_boost)
