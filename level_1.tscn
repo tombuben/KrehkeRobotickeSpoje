@@ -1,5 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bengtiruay3eo"]
-[gd_scene load_steps=13 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=15 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://Level.gd" id="1_cbap4"]
@@ -136,6 +135,7 @@ texture = ExtResource("7_m0xvp")
 [node name="ParkUvod5" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3748, -2476)
 texture = ExtResource("7_m0xvp")
+
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)
 script = ExtResource("8_bgc1y")
