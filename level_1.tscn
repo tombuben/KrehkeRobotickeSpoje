@@ -16,10 +16,10 @@ position = Vector2(49.785, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(-211.785, 232)
-polygon = PackedVector2Array(138, 436, 113, 265, 142, 159, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270.39, 1371, 280, 1408, 453)
+polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270.39, 1444, 303, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-85.785, 658, -65.785, 379, 181.215, 419, 229.215, 433, 267.215, 462, 345.215, 507, 1328.21, 520, 1320.21, 699)
+polygon = PackedVector2Array(-85.785, 658, -634.785, 536, -589.785, -155, -135.785, -185, -130.785, 390, 181.215, 419, 229.215, 433, 267.215, 462, 345.215, 507, 1328.21, 520, 3105.22, 584, 3199.22, -303, 3452.22, 622, 3146.22, 837, 1320.21, 699)
 
 [node name="pandulak" parent="." instance=ExtResource("1_1j5ko")]
 position = Vector2(559, 147)
