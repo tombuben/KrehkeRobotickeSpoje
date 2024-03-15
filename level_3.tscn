@@ -1,0 +1,106 @@
+[gd_scene load_steps=13 format=3 uid="uid://dpiemp71u0v7l"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
+[ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
+[ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="3_6cygf"]
+[ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="4_xgx00"]
+[ext_resource type="Script" path="res://CameraCenterer.gd" id="5_aubxs"]
+[ext_resource type="Shader" path="res://old_movie.gdshader" id="6_axbdr"]
+[ext_resource type="Script" path="res://Friction.gd" id="7_ymntq"]
+[ext_resource type="Script" path="res://GoalTarget.gd" id="8_os6pc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
+shader = ExtResource("6_axbdr")
+shader_parameter/projector_power = 0.497
+shader_parameter/vignette_param = 2.55
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1c1xu"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhxj"]
+size = Vector2(49.5146, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
+size = Vector2(510, 398)
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_yjqr6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(50, 212)
+script = ExtResource("2_ot8qe")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1017, 275, 1085, 284, 1085, 276, 1092, 274, 1091, 284, 1183, 286, 1183, 279, 1190, 279, 1189, 286, 1310, 288, 1393, 296, 1460, 292, 1513, 298, 1565, 302, 1565, 294, 1571, 293, 1571, 303, 1653, 294, 1653, 288, 1658, 288, 1659, 293, 1745, 290, 1827, 286, 1882, 297, 1938, 307, 2089, 218, 2016, 307, 2134, 257, 2104, 215, 2150, 201, 2187, 203, 2224, 224, 2289, 265, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1017, 275, 1085, 284, 1085, 276, 1092, 274, 1091, 284, 1183, 286, 1183, 279, 1190, 279, 1189, 286, 1310, 288, 1393, 296, 1460, 292, 1513, 298, 1565, 302, 1565, 294, 1571, 293, 1571, 303, 1653, 294, 1653, 288, 1658, 288, 1659, 293, 1745, 290, 1827, 286, 1882, 297, 1938, 307, 2089, 218, 2016, 307, 2134, 257, 2104, 215, 2150, 201, 2187, 203, 2224, 224, 2289, 265, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+
+[node name="sisoun" parent="." instance=ExtResource("3_6cygf")]
+position = Vector2(674, 440)
+
+[node name="ona" parent="." instance=ExtResource("4_xgx00")]
+position = Vector2(952, 446)
+player = 2
+
+[node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
+position = Vector2(434, 168)
+script = ExtResource("5_aubxs")
+pos1 = NodePath("../ona")
+pos2 = NodePath("../sisoun")
+
+[node name="CharactersCamera" type="Camera2D" parent="CameraCenterer"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_fugcv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Krabice" type="RigidBody2D" parent="."]
+position = Vector2(817, 220)
+collision_layer = 7
+collision_mask = 7
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_1c1xu")
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="Node2D" type="Node2D" parent="Krabice" node_paths=PackedStringArray("first", "second")]
+script = ExtResource("7_ymntq")
+first = NodePath("../../ona")
+second = NodePath("../../sisoun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
+scale = Vector2(4.12, 1)
+shape = SubResource("RectangleShape2D_eqhxj")
+
+[node name="ColorRect" type="ColorRect" parent="Krabice/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -24.0
+offset_right = 25.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GoalTarget" type="Area2D" parent="."]
+position = Vector2(3202, 368)
+script = ExtResource("8_os6pc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoalTarget"]
+position = Vector2(-2, 66)
+shape = SubResource("RectangleShape2D_iy1vu")
+
+[connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
+[connection signal="body_entered" from="GoalTarget" to="." method="_on_goal_target_body_entered"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct3486jxjxl0w"]
+
+[ext_resource type="VideoStream" path="res://art/sample_640x360.ogv" id="1_s4ula"]
+
+[node name="IntroVideo" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 800.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_s4ula")
+autoplay = true
+expand = true
