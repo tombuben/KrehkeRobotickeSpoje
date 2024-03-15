@@ -27,11 +27,14 @@ position = Vector2(12, -9)
 [node name="StaticBody2D" parent="telo/rukaLeva/rameno" index="0"]
 position = Vector2(25, 35)
 
+[node name="RigidBody2D" parent="telo/rukaLeva" index="1"]
+position = Vector2(12, -9)
+
 [node name="CollisionShape2D" parent="telo/rukaLeva/RigidBody2D" index="0"]
-position = Vector2(1, 33)
+position = Vector2(22, 34)
 
 [node name="Sisoun-ruka-leva" parent="telo/rukaLeva/RigidBody2D" index="1"]
-position = Vector2(-5.82016, 12.1798)
+position = Vector2(14, 13)
 scale = Vector2(0.109832, -0.109832)
 texture = ExtResource("4_yhfi3")
 flip_h = true
@@ -41,11 +44,11 @@ position = Vector2(-71.2007, 189.564)
 scale = Vector2(-1.04427, 1.04427)
 texture = ExtResource("5_evy8g")
 
+[node name="DampedSpringJoint2D" parent="telo/rukaLeva/RigidBody2D" index="2"]
+position = Vector2(19.7531, 35.083)
+
 [node name="PinJoint2D" parent="telo/rukaLeva" index="2"]
 position = Vector2(14, -9)
-
-[node name="DampedSpringJoint2D" parent="telo/rukaLeva" index="3"]
-position = Vector2(36, 25)
 
 [node name="rameno" parent="telo/rukaPrava" index="0"]
 position = Vector2(-15, -11)
@@ -70,11 +73,11 @@ position = Vector2(-42.0984, 176.813)
 texture = ExtResource("5_evy8g")
 flip_h = true
 
+[node name="DampedSpringJoint2D" parent="telo/rukaPrava/RigidBody2D" index="2"]
+position = Vector2(-21.1673, 32.6335)
+
 [node name="PinJoint2D" parent="telo/rukaPrava" index="2"]
 position = Vector2(-18, -11)
-
-[node name="DampedSpringJoint2D" parent="telo/rukaPrava" index="3"]
-position = Vector2(-37, 24)
 
 [node name="Sisoun-telo" parent="telo" index="3"]
 position = Vector2(-4, 22)

@@ -26,24 +26,27 @@ texture = ExtResource("3_krrle")
 position = Vector2(43, -9)
 
 [node name="StaticBody2D" parent="telo/rukaLeva/rameno" index="0"]
-position = Vector2(12, 63)
+position = Vector2(14.1841, 64.5276)
+
+[node name="RigidBody2D" parent="telo/rukaLeva" index="1"]
+position = Vector2(42, -10)
 
 [node name="CollisionShape2D" parent="telo/rukaLeva/RigidBody2D" index="0"]
-position = Vector2(22, 61)
+position = Vector2(14, 66)
 
 [node name="Sisoun-ruka-leva" parent="telo/rukaLeva/RigidBody2D" index="1"]
-position = Vector2(19, 39)
+position = Vector2(10, 41)
 texture = ExtResource("4_smtts")
 flip_h = true
 
 [node name="sisoun-packa-prava" parent="telo/rukaLeva/RigidBody2D/Sisoun-ruka-leva" index="0"]
 texture = SubResource("CanvasTexture_6kkv2")
 
+[node name="DampedSpringJoint2D" parent="telo/rukaLeva/RigidBody2D" index="2"]
+position = Vector2(13, 64)
+
 [node name="PinJoint2D" parent="telo/rukaLeva" index="2"]
 position = Vector2(42, -9)
-
-[node name="DampedSpringJoint2D" parent="telo/rukaLeva" index="3"]
-position = Vector2(54, 50)
 
 [node name="rameno" parent="telo/rukaPrava" index="0"]
 position = Vector2(-40, -8)
@@ -67,9 +70,6 @@ texture = SubResource("CanvasTexture_7o0l0")
 
 [node name="PinJoint2D" parent="telo/rukaPrava" index="2"]
 position = Vector2(-39, -7)
-
-[node name="DampedSpringJoint2D" parent="telo/rukaPrava" index="3"]
-position = Vector2(-53, 53)
 
 [node name="Sisoun-telo" parent="telo" index="3"]
 position = Vector2(3, 28)
