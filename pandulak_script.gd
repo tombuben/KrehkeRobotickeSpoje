@@ -3,7 +3,7 @@ extends Node2D
 @export var player : int = 1
 @export var leva_ruka : bool = true;
 @export var prava_ruka : bool = true;
-@export var speed_multiplier : float = 1
+@export var speed_multiplier : float = 100
 
 var kolecko : Node2D
 

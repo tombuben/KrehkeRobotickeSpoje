@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d2myyy2dlm4ti"]
+[gd_scene load_steps=18 format=3 uid="uid://d2myyy2dlm4ti"]
 
 [ext_resource type="Script" path="res://kolo.gd" id="1_8e416"]
 [ext_resource type="Script" path="res://pandulak_script.gd" id="1_j6uh4"]
@@ -20,7 +20,13 @@ radius = 80.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj8ou"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c733y"]
+rough = true
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6sau"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0qe4y"]
+rough = true
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eivqm"]
 height = 83.27
@@ -36,7 +42,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ehvyi")
 
 [node name="kolo" type="RigidBody2D" parent="."]
-mass = 600.0
+mass = 120.0
 physics_material_override = SubResource("PhysicsMaterial_87njb")
 center_of_mass_mode = 1
 script = ExtResource("1_8e416")
@@ -59,9 +65,9 @@ node_b = NodePath("../telo")
 position = Vector2(0, -130)
 collision_layer = 0
 collision_mask = 0
-mass = 200.0
-center_of_mass_mode = 1
-center_of_mass = Vector2(0, -400)
+mass = 20.0
+gravity_scale = -1.0
+lock_rotation = true
 
 [node name="rukaLeva" type="Node2D" parent="telo"]
 script = ExtResource("5_hgmqo")
@@ -79,12 +85,25 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo/rukaLeva/rameno/StaticBody2D"]
 shape = SubResource("CircleShape2D_hj8ou")
 
+[node name="ColorRect" type="ColorRect" parent="telo/rukaLeva/rameno/StaticBody2D/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.227451, 0, 1)
+
 [node name="RigidBody2D" type="RigidBody2D" parent="telo/rukaLeva"]
 position = Vector2(33, -8)
 rotation = -1.309
 collision_layer = 2
-collision_mask = 5
-mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_c733y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo/rukaLeva/RigidBody2D"]
 position = Vector2(9, 53)
@@ -101,18 +120,16 @@ position = Vector2(-40, 300)
 scale = Vector2(-1, 1)
 texture = ExtResource("9_v4twp")
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="telo/rukaLeva/RigidBody2D"]
-position = Vector2(9, 54)
-rotation = -1.5708
-node_a = NodePath("../../rameno/StaticBody2D")
-node_b = NodePath("..")
-length = 5.0
-stiffness = 64.0
-
 [node name="PinJoint2D" type="PinJoint2D" parent="telo/rukaLeva"]
 position = Vector2(33, -8)
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../..")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="telo/rukaLeva"]
+position = Vector2(87.4894, -2.71727)
+node_a = NodePath("../rameno/StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+stiffness = 64.0
 
 [node name="rukaPrava" type="Node2D" parent="telo"]
 script = ExtResource("5_hgmqo")
@@ -129,12 +146,25 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo/rukaPrava/rameno/StaticBody2D"]
 shape = SubResource("CircleShape2D_hj8ou")
 
+[node name="ColorRect" type="ColorRect" parent="telo/rukaPrava/rameno/StaticBody2D/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.227451, 0, 1)
+
 [node name="RigidBody2D" type="RigidBody2D" parent="telo/rukaPrava"]
 position = Vector2(-32, -7)
 rotation = 1.309
 collision_layer = 2
-collision_mask = 5
-mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_0qe4y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo/rukaPrava/RigidBody2D"]
 position = Vector2(-12, 59)
@@ -149,18 +179,17 @@ texture = ExtResource("8_o1u8b")
 position = Vector2(-39.9999, 310)
 texture = ExtResource("9_v4twp")
 
-[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="telo/rukaPrava/RigidBody2D"]
-position = Vector2(-13, 59)
-rotation = -1.5708
-node_a = NodePath("../../rameno/StaticBody2D")
-node_b = NodePath("..")
-length = 5.0
-stiffness = 64.0
-
 [node name="PinJoint2D" type="PinJoint2D" parent="telo/rukaPrava"]
 position = Vector2(-32, -7)
 node_a = NodePath("../RigidBody2D")
 node_b = NodePath("../..")
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="telo/rukaPrava"]
+position = Vector2(-92.3543, -4.2869)
+node_a = NodePath("../rameno/StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+bias = 0.9
+stiffness = 64.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo"]
 position = Vector2(1, 47)

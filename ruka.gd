@@ -26,10 +26,7 @@ func init_ruka(set_player : int):
 		down_action = "Player2Down"
 		is_controller = true
 		
-	if levost:
-		mover.rotate(-1.5)
-	else :
-		mover.rotate(1.5)
+
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -46,7 +43,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	#return
 	if is_controller:
 		if levost:
 			print(mover.rotation)
@@ -56,4 +52,4 @@ func _physics_process(delta):
 			mover.rotate(lower_limit - mover.rotation)
 		if mover.rotation > upper_limit:
 			mover.rotate(upper_limit - mover.rotation)
-		#apply_torque_impulse(torque_strength * velocity)
+		
