@@ -16,3 +16,6 @@ func progress_level():
 	level = level + 1
 	if !get_tree().change_scene_to_file("res://level_" + str(level) + ".tscn"):
 		get_tree().change_scene_to_file("res://konec.tscn")
+		
+func reset_level():
+	get_tree().reload_current_scene()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=18 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://Level.gd" id="1_cbap4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="6_ahpbm"]
 [ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="7_m0xvp"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_bgc1y"]
+[ext_resource type="Texture2D" uid="uid://cni6sio1f8skg" path="res://art/carry_stuff/kosik.png" id="8_tc635"]
 [ext_resource type="Script" path="res://storyboardCamera.gd" id="9_mx74c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
@@ -22,6 +23,10 @@ friction = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r7yqd"]
 radius = 4.8092
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jd27c"]
+radius = 5.0
+height = 54.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
@@ -83,31 +88,15 @@ script = ExtResource("4_uuuov")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
 shape = SubResource("CircleShape2D_r7yqd")
 
-[node name="ColorRect" type="ColorRect" parent="Krabice/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -26.0
-offset_top = 31.0
-offset_right = 27.0
-offset_bottom = 78.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="Krabice/CollisionShape2D"]
+position = Vector2(2, 27)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_tc635")
 
-[node name="ColorRect2" type="ColorRect" parent="Krabice/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -5.0
-offset_top = -1.0
-offset_right = 4.0
-offset_bottom = 46.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Krabice"]
+position = Vector2(3, 50)
+rotation = 1.51844
+shape = SubResource("CapsuleShape2D_jd27c")
 
 [node name="CameraSwitcher" type="Node2D" parent="." node_paths=PackedStringArray("gameplayCamera", "storyboards")]
 script = ExtResource("6_ahpbm")
