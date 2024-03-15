@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dpiemp71u0v7l"]
+[gd_scene load_steps=14 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
@@ -19,6 +19,9 @@ friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhxj"]
 size = Vector2(49.5146, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf7m3"]
+size = Vector2(29.4114, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
@@ -72,10 +75,8 @@ physics_material_override = SubResource("PhysicsMaterial_1c1xu")
 max_contacts_reported = 2
 contact_monitor = true
 
-[node name="Node2D" type="Node2D" parent="Krabice" node_paths=PackedStringArray("first", "second")]
+[node name="Node2D" type="Node2D" parent="Krabice"]
 script = ExtResource("7_ymntq")
-first = NodePath("../../ona")
-second = NodePath("../../sisoun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
 scale = Vector2(4.12, 1)
@@ -94,6 +95,29 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Mimino" type="RigidBody2D" parent="."]
+position = Vector2(809, 162)
+collision_layer = 7
+collision_mask = 7
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_1c1xu")
+max_contacts_reported = 2
+contact_monitor = true
+
+[node name="Node2D" type="Node2D" parent="Mimino"]
+script = ExtResource("7_ymntq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mimino"]
+scale = Vector2(4.12, 1)
+shape = SubResource("RectangleShape2D_lf7m3")
+
+[node name="ColorRect" type="ColorRect" parent="Mimino/CollisionShape2D"]
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 16.045
+offset_bottom = 15.03
+scale = Vector2(0.956, 1)
+
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)
 script = ExtResource("8_os6pc")
@@ -103,4 +127,7 @@ position = Vector2(-2, 66)
 shape = SubResource("RectangleShape2D_iy1vu")
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
+[connection signal="body_entered" from="Krabice" to="Mimino/Node2D" method="_on_krabice_body_entered"]
+[connection signal="body_exited" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_exited"]
+[connection signal="body_entered" from="Mimino" to="." method="_on_krabice_body_entered"]
 [connection signal="body_entered" from="GoalTarget" to="." method="_on_goal_target_body_entered"]

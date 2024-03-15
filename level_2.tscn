@@ -72,10 +72,8 @@ physics_material_override = SubResource("PhysicsMaterial_1c1xu")
 max_contacts_reported = 2
 contact_monitor = true
 
-[node name="Node2D" type="Node2D" parent="Krabice" node_paths=PackedStringArray("first", "second")]
+[node name="Node2D" type="Node2D" parent="Krabice"]
 script = ExtResource("7_ushj2")
-first = NodePath("../../ona")
-second = NodePath("../../sisoun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
 scale = Vector2(4.12, 1)
@@ -103,4 +101,6 @@ position = Vector2(-2, 66)
 shape = SubResource("RectangleShape2D_iy1vu")
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
+[connection signal="body_entered" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_entered"]
+[connection signal="body_exited" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_exited"]
 [connection signal="body_entered" from="GoalTarget" to="." method="_on_goal_target_body_entered"]

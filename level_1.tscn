@@ -19,8 +19,8 @@ shader_parameter/vignette_param = 2.0
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1c1xu"]
 friction = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhxj"]
-size = Vector2(49.5146, 46)
+[sub_resource type="CircleShape2D" id="CircleShape2D_r7yqd"]
+radius = 4.8092
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
@@ -42,7 +42,7 @@ polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152,
 position = Vector2(674, 440)
 
 [node name="ona" parent="." instance=ExtResource("5_qh2jo")]
-position = Vector2(952, 446)
+position = Vector2(816, 446)
 player = 2
 
 [node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
@@ -66,22 +66,21 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Krabice" type="RigidBody2D" parent="."]
-position = Vector2(817, 220)
+position = Vector2(751, 283)
 collision_layer = 7
 collision_mask = 7
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_1c1xu")
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 20)
 max_contacts_reported = 2
 contact_monitor = true
 
-[node name="Node2D" type="Node2D" parent="Krabice" node_paths=PackedStringArray("first", "second")]
+[node name="Node2D" type="Node2D" parent="Krabice"]
 script = ExtResource("4_uuuov")
-first = NodePath("../../ona")
-second = NodePath("../../sisoun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
-scale = Vector2(4.12, 1)
-shape = SubResource("RectangleShape2D_eqhxj")
+shape = SubResource("CircleShape2D_r7yqd")
 
 [node name="ColorRect" type="ColorRect" parent="Krabice/CollisionShape2D"]
 anchors_preset = 8
@@ -89,10 +88,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -24.0
-offset_right = 25.0
-offset_bottom = 23.0
+offset_left = -26.0
+offset_top = 31.0
+offset_right = 27.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Krabice/CollisionShape2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -1.0
+offset_right = 4.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -145,4 +157,6 @@ position = Vector2(-2, 66)
 shape = SubResource("RectangleShape2D_iy1vu")
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
+[connection signal="body_entered" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_entered"]
+[connection signal="body_exited" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_exited"]
 [connection signal="body_entered" from="GoalTarget" to="." method="_on_goal_target_body_entered"]

@@ -28,7 +28,7 @@ height = 75.0
 friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eivqm"]
-height = 83.27
+height = 176.0
 
 [node name="pandulak" type="Node2D"]
 position = Vector2(1, 2)
@@ -62,8 +62,7 @@ node_b = NodePath("../telo")
 
 [node name="telo" type="RigidBody2D" parent="."]
 position = Vector2(0, -130)
-collision_layer = 0
-collision_mask = 0
+collision_layer = 2
 mass = 20.0
 gravity_scale = -1.0
 lock_rotation = true
@@ -122,7 +121,7 @@ position = Vector2(1.52721, -27.6421)
 shape = SubResource("CapsuleShape2D_bu3hi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telo"]
-position = Vector2(1, 47)
+position = Vector2(1, 19)
 shape = SubResource("CapsuleShape2D_eivqm")
 
 [node name="Sisoun-telo" type="Sprite2D" parent="telo"]
