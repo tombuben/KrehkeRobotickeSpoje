@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=5 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://CameraCenterer.gd" id="2_r8wdn"]
+[ext_resource type="Shader" path="res://old_movie.gdshader" id="3_fspt7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
+shader = ExtResource("3_fspt7")
+shader_parameter/projector_power = 0.497
+shader_parameter/vignette_param = 2.55
 
 [node name="Level1" type="Node2D"]
 
@@ -18,14 +24,9 @@ polygon = PackedVector2Array(-85.785, 658, -65.785, 379, 181.215, 419, 229.215, 
 [node name="pandulak" parent="." instance=ExtResource("1_1j5ko")]
 position = Vector2(559, 147)
 player = 2
-leva_ruka = true
-prava_ruka = true
 
 [node name="pandulak2" parent="." instance=ExtResource("1_1j5ko")]
 position = Vector2(250, 194)
-player = 1
-leva_ruka = true
-prava_ruka = true
 
 [node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
 position = Vector2(434, 168)
@@ -36,3 +37,13 @@ pos2 = NodePath("../pandulak2")
 [node name="CharactersCamera" type="Camera2D" parent="CameraCenterer"]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_fugcv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
