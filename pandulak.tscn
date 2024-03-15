@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2myyy2dlm4ti"]
+
+[ext_resource type="Script" path="res://kolo.gd" id="1_8e416"]
+[ext_resource type="Script" path="res://pandulak_script.gd" id="1_j6uh4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_87njb"]
+rough = true
+bounce = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k35wg"]
+radius = 80.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eivqm"]
+height = 83.27
+
+[node name="pandulak" type="Node2D"]
+position = Vector2(1, 2)
+script = ExtResource("1_j6uh4")
+
+[node name="kolo" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_87njb")
+center_of_mass_mode = 1
+script = ExtResource("1_8e416")
+player = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kolo"]
+scale = Vector2(1, 0.95)
+shape = SubResource("CircleShape2D_k35wg")
+
+[node name="Polygon2D" type="Polygon2D" parent="kolo"]
+polygon = PackedVector2Array(-80, -2, -59, -46, -11, -72, 47, -64, 82, -8, 56, 44, 5, 77, -50, 56)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+node_a = NodePath("../kolo")
+node_b = NodePath("../telo")
+
+[node name="telo" type="RigidBody2D" parent="."]
+position = Vector2(0, -130)
+collision_layer = 0
+collision_mask = 0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="telo"]
+shape = SubResource("CapsuleShape2D_eivqm")
+
+[node name="Polygon2D" type="Polygon2D" parent="telo"]
+polygon = PackedVector2Array(-67, 44, -75, -103, 90, -101, 59, 59)
