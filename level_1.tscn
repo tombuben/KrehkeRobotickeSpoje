@@ -1,3 +1,4 @@
+[gd_scene load_steps=11 format=3 uid="uid://bengtiruay3eo"]
 [gd_scene load_steps=13 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
@@ -7,12 +8,14 @@
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="3_fspt7"]
 [ext_resource type="Script" path="res://Friction.gd" id="4_uuuov"]
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="5_qh2jo"]
+[ext_resource type="Script" path="res://CameraSwitcher.gd" id="6_ahpbm"]
+[ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="7_m0xvp"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_bgc1y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("3_fspt7")
 shader_parameter/projector_power = 0.497
-shader_parameter/vignette_param = 2.55
+shader_parameter/vignette_param = 2.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1c1xu"]
 friction = 0.0
@@ -41,6 +44,7 @@ position = Vector2(674, 440)
 
 [node name="ona" parent="." instance=ExtResource("5_qh2jo")]
 position = Vector2(952, 446)
+player = 2
 
 [node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
 position = Vector2(434, 168)
@@ -93,6 +97,45 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CameraSwitcher" type="Node2D" parent="." node_paths=PackedStringArray("gameplayCamera", "storyboards")]
+script = ExtResource("6_ahpbm")
+gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
+storyboards = [NodePath("../Storyboard/ParkUvod"), NodePath("../Storyboard/ParkUvod2"), NodePath("../Storyboard/ParkUvod3"), NodePath("../Storyboard/ParkUvod4"), NodePath("../Storyboard/ParkUvod5")]
+
+[node name="StoryboardCamera" type="Camera2D" parent="CameraSwitcher"]
+position = Vector2(-998, -1504)
+zoom = Vector2(1.75, 1.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Storyboard" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Storyboard"]
+offset_left = -4123.0
+offset_top = -4747.0
+offset_right = -3323.0
+offset_bottom = -747.0
+color = Color(0, 0, 0, 1)
+
+[node name="ParkUvod" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3729, -4408)
+texture = ExtResource("7_m0xvp")
+
+[node name="ParkUvod2" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3808, -3960)
+texture = ExtResource("7_m0xvp")
+
+[node name="ParkUvod3" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3733, -3466)
+texture = ExtResource("7_m0xvp")
+
+[node name="ParkUvod4" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3740, -2941)
+texture = ExtResource("7_m0xvp")
+
+[node name="ParkUvod5" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3748, -2476)
+texture = ExtResource("7_m0xvp")
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)
 script = ExtResource("8_bgc1y")
