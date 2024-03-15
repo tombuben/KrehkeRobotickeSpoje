@@ -2,6 +2,10 @@ extends Node
 
 var level : int = 1
 
+var MAX_LVL_COUNT = 3
+var BLOCK_INPUT: bool = false
+var LEVEL_CUTSCENE_FINISHED : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -12,6 +16,7 @@ func _process(delta):
 	
 func progress_level():
 	level = level + 1
+	LEVEL_CUTSCENE_FINISHED = false
 	if get_tree().change_scene_to_file("res://level_" + str(level) + ".tscn") == ERR_CANT_OPEN:
 		get_tree().change_scene_to_file("res://konec.tscn")
 		

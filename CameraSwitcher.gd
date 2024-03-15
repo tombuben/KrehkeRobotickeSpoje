@@ -1,4 +1,4 @@
-extends Node2D
+class_name CameraSwitcher extends Node2D
 
 @export var gameplayCamera: Camera2D
 @onready var storyboardPlayer : storyboardPlayer = $StoryboardPlayer
@@ -11,7 +11,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("SwitchCamera"):
-		await activateIntro()	
+		await activateOutro()	
 		
 func activateIntro():
 	await storyboardPlayer.playLevelIntro()

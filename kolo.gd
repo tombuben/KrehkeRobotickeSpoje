@@ -30,6 +30,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	if Global.BLOCK_INPUT:
+		return
 	if is_controller:
 		var velocity = Input.get_axis(left_action, right_action)
 		apply_torque_impulse(torque_strength * velocity * speed_boost)

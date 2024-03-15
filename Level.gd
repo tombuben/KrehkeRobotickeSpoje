@@ -3,10 +3,23 @@ extends Node2D
 var is_game_over = false
 @export var gameOverTextObject : Node2D
 
+@onready var cameraSwitcher : CameraSwitcher = $CameraSwitcher
+
 func _on_krabice_body_entered(body):
 	if body is KillBody and is_game_over == false:
 		is_game_over = true
 		game_over()
+		
+		
+func _ready():
+	if not Global.LEVEL_CUTSCENE_FINISHED:	
+		Global.BLOCK_INPUT = true
+		await get_tree().create_timer(2).timeout
+		await cameraSwitcher.activateIntro()
+		await get_tree().create_timer(1).timeout
+		Global.BLOCK_INPUT = false
+		
+	Global.LEVEL_CUTSCENE_FINISHED = true
 
 func _on_goal_target_body_entered(body):
 	if body.name == "Krabice" and is_game_over == false:
