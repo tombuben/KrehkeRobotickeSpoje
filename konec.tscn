@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgvib30tkbifk"]
+
+[ext_resource type="VideoStream" path="res://art/videa/konec.ogv" id="2_6qs2q"]
+[ext_resource type="Shader" path="res://old_movie.gdshader" id="3_1wkjx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lxxv"]
+shader = ExtResource("3_1wkjx")
+shader_parameter/projector_power = 0.497
+shader_parameter/vignette_param = 2.0
+
+[node name="konec" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_6qs2q")
+autoplay = true
+expand = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_5lxxv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
