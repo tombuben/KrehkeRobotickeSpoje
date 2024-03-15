@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu6wntkvdjhkj"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_3x3s8"]
+[ext_resource type="VideoStream" path="res://art/videa/main_menu.ogv" id="1_n6q28"]
+[ext_resource type="Shader" path="res://old_movie.gdshader" id="2_7cugw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lxxv"]
+shader = ExtResource("2_7cugw")
+shader_parameter/projector_power = 0.497
+shader_parameter/vignette_param = 2.0
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_3x3s8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_n6q28")
+autoplay = true
+expand = true
+loop = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_5lxxv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

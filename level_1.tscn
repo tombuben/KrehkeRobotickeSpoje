@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=16 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://Level.gd" id="1_cbap4"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="6_ahpbm"]
 [ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="7_m0xvp"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_bgc1y"]
+[ext_resource type="Script" path="res://storyboardCamera.gd" id="9_mx74c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("3_fspt7")
@@ -118,6 +119,7 @@ position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+script = ExtResource("9_mx74c")
 
 [node name="Storyboard" type="Node2D" parent="."]
 
