@@ -5,7 +5,9 @@ extends Node2D
 @export var prava_ruka : bool = true;
 @export var speed_multiplier : float = 100
 
+@onready var telo : RigidBody2D = $telo
 var kolecko : Node2D
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,3 +18,6 @@ func _ready():
 
 func get_kolo_position():
 	return kolecko.global_position
+	
+func get_velocity():
+	return telo.linear_velocity
