@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=3 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
+[ext_resource type="Script" path="res://CameraCenterer.gd" id="2_r8wdn"]
 
 [node name="Level1" type="Node2D"]
 
@@ -11,5 +12,27 @@ position = Vector2(49.785, 0)
 position = Vector2(-211.785, 232)
 polygon = PackedVector2Array(138, 436, 113, 265, 142, 159, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270.39, 1371, 280, 1408, 453)
 
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-85.785, 658, -65.785, 379, 181.215, 419, 229.215, 433, 267.215, 462, 345.215, 507, 1328.21, 520, 1320.21, 699)
+
 [node name="pandulak" parent="." instance=ExtResource("1_1j5ko")]
 position = Vector2(559, 147)
+player = 2
+leva_ruka = true
+prava_ruka = true
+
+[node name="pandulak2" parent="." instance=ExtResource("1_1j5ko")]
+position = Vector2(250, 194)
+player = 1
+leva_ruka = true
+prava_ruka = true
+
+[node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
+position = Vector2(434, 168)
+script = ExtResource("2_r8wdn")
+pos1 = NodePath("../pandulak")
+pos2 = NodePath("../pandulak2")
+
+[node name="CharactersCamera" type="Camera2D" parent="CameraCenterer"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

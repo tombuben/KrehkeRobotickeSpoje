@@ -20,11 +20,13 @@ func init_kolo(set_player : int):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	init_kolo(player)
+	#we call init_kolo in pandulak_script
+	#init_kolo(player)
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	if is_controller:
-		var velocity = Input.get_axis(right_action, left_action)
+		var velocity = Input.get_axis(left_action, right_action)
 		apply_torque_impulse(torque_strength * velocity)
