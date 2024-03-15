@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cv2vcdlx35fdb"]
+[gd_scene load_steps=15 format=3 uid="uid://cv2vcdlx35fdb"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_a48ek"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_e0cwa"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="4_mak3f"]
 [ext_resource type="Script" path="res://CameraCenterer.gd" id="5_5vbhc"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="6_kmwe0"]
+[ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="6_q0rry"]
 [ext_resource type="Script" path="res://Friction.gd" id="7_ushj2"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_j552f"]
+[ext_resource type="Texture2D" uid="uid://cqrw63dltv63u" path="res://art/carry_stuff/krabice.png" id="9_jy2fh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("6_kmwe0")
@@ -18,29 +20,30 @@ shader_parameter/vignette_param = 2.55
 friction = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhxj"]
-size = Vector2(49.5146, 46)
+size = Vector2(177.757, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("gameOverTextObject")]
 script = ExtResource("1_a48ek")
+gameOverTextObject = NodePath("CanvasLayer/GameOverScreen")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(50, 212)
 script = ExtResource("2_e0cwa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 540, 219, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 540, 219, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
 
 [node name="sisoun" parent="." instance=ExtResource("3_ceeca")]
 position = Vector2(674, 440)
 
 [node name="ona" parent="." instance=ExtResource("4_mak3f")]
-position = Vector2(952, 446)
+position = Vector2(906, 442)
 player = 2
 
 [node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
@@ -63,8 +66,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="GameOverScreen" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(397, 291)
+texture = ExtResource("6_q0rry")
+
 [node name="Krabice" type="RigidBody2D" parent="."]
-position = Vector2(817, 220)
+position = Vector2(809, 243)
 collision_layer = 7
 collision_mask = 7
 mass = 5.0
@@ -76,21 +84,13 @@ contact_monitor = true
 script = ExtResource("7_ushj2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
-scale = Vector2(4.12, 1)
+scale = Vector2(0.9, 0.9)
 shape = SubResource("RectangleShape2D_eqhxj")
 
-[node name="ColorRect" type="ColorRect" parent="Krabice/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -24.0
-offset_right = 25.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="Krabice/CollisionShape2D"]
+rotation = -0.0349066
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_jy2fh")
 
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=24 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://Level.gd" id="1_cbap4"]
@@ -8,9 +8,15 @@
 [ext_resource type="Script" path="res://Friction.gd" id="4_uuuov"]
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="5_qh2jo"]
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="6_ahpbm"]
+[ext_resource type="Texture2D" uid="uid://c8vwkyk4gybhd" path="res://art/stromy/strom1.png" id="6_m1xfc"]
+[ext_resource type="Texture2D" uid="uid://ccbgj5780o2qb" path="res://art/stromy/strom2.png" id="7_8xhop"]
 [ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="7_m0xvp"]
+[ext_resource type="Texture2D" uid="uid://dl6kajvx53vqc" path="res://art/stromy/strom3.png" id="8_1dda0"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_bgc1y"]
+[ext_resource type="Texture2D" uid="uid://dev22bq0tb5p" path="res://art/stromy/strom5.png" id="8_dgjjw"]
 [ext_resource type="Texture2D" uid="uid://cni6sio1f8skg" path="res://art/carry_stuff/kosik.png" id="8_tc635"]
+[ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="8_v3eh1"]
+[ext_resource type="Texture2D" uid="uid://ig5lwx07xvp7" path="res://art/stromy/strom4.png" id="8_yi0ws"]
 [ext_resource type="Script" path="res://storyboardCamera.gd" id="9_mx74c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
@@ -31,8 +37,9 @@ height = 54.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("gameOverTextObject")]
 script = ExtResource("1_cbap4")
+gameOverTextObject = NodePath("CanvasLayer/GameOverScreen")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(50, 212)
@@ -42,7 +49,7 @@ script = ExtResource("2_nufue")
 polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+polygon = PackedVector2Array(-276, 861, -508, 322, -621, -388, -348, -1480, 1547, -1449, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3324, 352, 3404, -512, 1903, -1328, 3147, -1507, 4356, -639, 3974, 1051, 1398, 832)
 
 [node name="sisoun" parent="." instance=ExtResource("1_1j5ko")]
 position = Vector2(674, 440)
@@ -58,10 +65,52 @@ pos1 = NodePath("../ona")
 pos2 = NodePath("../sisoun")
 
 [node name="CharactersCamera" type="Camera2D" parent="CameraCenterer"]
+position = Vector2(0, -168)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_offset = Vector2(30, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(514, 276)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_m1xfc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1945, 287)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8xhop")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1415, 275)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_dgjjw")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_offset = Vector2(30, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(2767, 336)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("6_m1xfc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1835, 255)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_yi0ws")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
+position = Vector2(1184, 278)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_1dda0")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_fugcv")
@@ -70,6 +119,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GameOverScreen" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(397, 291)
+texture = ExtResource("8_v3eh1")
 
 [node name="Krabice" type="RigidBody2D" parent="."]
 position = Vector2(751, 283)

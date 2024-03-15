@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpiemp71u0v7l"]
+[gd_scene load_steps=15 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="4_xgx00"]
 [ext_resource type="Script" path="res://CameraCenterer.gd" id="5_aubxs"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="6_axbdr"]
+[ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="7_bvag3"]
 [ext_resource type="Script" path="res://Friction.gd" id="7_ymntq"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_os6pc"]
 
@@ -26,8 +27,9 @@ size = Vector2(29.4114, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" node_paths=PackedStringArray("gameOverTextObject")]
 script = ExtResource("1_yjqr6")
+gameOverTextObject = NodePath("CanvasLayer/GameOverScreen")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(50, 212)
@@ -65,6 +67,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="GameOverScreen" type="Sprite2D" parent="CanvasLayer"]
+visible = false
+position = Vector2(397, 291)
+texture = ExtResource("7_bvag3")
 
 [node name="Krabice" type="RigidBody2D" parent="."]
 position = Vector2(817, 220)
