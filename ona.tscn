@@ -21,8 +21,11 @@ position = Vector2(-3.63636, -3.63636)
 scale = Vector2(0.446, 0.446)
 texture = ExtResource("3_g6j1w")
 
+[node name="rameno" parent="telo/rukaLeva" index="0"]
+position = Vector2(12, -9)
+
 [node name="StaticBody2D" parent="telo/rukaLeva/rameno" index="0"]
-position = Vector2(2, 32)
+position = Vector2(25, 35)
 
 [node name="CollisionShape2D" parent="telo/rukaLeva/RigidBody2D" index="0"]
 position = Vector2(1, 33)
@@ -42,7 +45,7 @@ texture = ExtResource("5_evy8g")
 position = Vector2(14, -9)
 
 [node name="DampedSpringJoint2D" parent="telo/rukaLeva" index="3"]
-position = Vector2(34, 26)
+position = Vector2(36, 25)
 
 [node name="rameno" parent="telo/rukaPrava" index="0"]
 position = Vector2(-15, -11)
