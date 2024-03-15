@@ -1,9 +1,7 @@
 extends Node2D
 
 @export var gameplayCamera: Camera2D
-@onready var storyboardCamera : storyboardCamera = $StoryboardCamera
-
-@export var storyboards: Array[Sprite2D]
+@onready var storyboardPlayer : storyboardPlayer = $StoryboardPlayer
 
 var counter: int = 0
 
@@ -13,19 +11,15 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("SwitchCamera"):
-		switchCamera(counter)
-		counter = counter+1
+		await activateIntro()	
 		
-		
-func activateStoryboard(storyboardIndex: int):
-	if storyboards[storyboardIndex] != null:
-		var storyboard = storyboards[storyboardIndex]
-		storyboardCamera.activate(storyboard)
-		
+func activateIntro():
+	await storyboardPlayer.playLevelIntro()
+	activateGameplayCamera()
+	
+func activateOutro():
+	await storyboardPlayer.playLevelOutro()
+	activateGameplayCamera()
 
-func switchCamera(storyboardIndex: int):
-	if storyboards[storyboardIndex] != null:
-		var storyboard = storyboards[storyboardIndex]
-		storyboardCamera.global_position = storyboard.global_position
-		
-		storyboardCamera.make_current()
+func activateGameplayCamera():
+	gameplayCamera.make_current()
