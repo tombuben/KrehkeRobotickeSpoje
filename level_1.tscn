@@ -1,3 +1,54 @@
-[gd_scene format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=4 format=3 uid="uid://bengtiruay3eo"]
+
+[ext_resource type="Script" path="res://kolo.gd" id="1_m5ij5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k35wg"]
+radius = 20.025
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eivqm"]
+height = 83.27
 
 [node name="Level1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(49.785, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(138, 436, 119, 324, 942, 307, 907, 454)
+
+[node name="pandulak" type="Node2D" parent="."]
+position = Vector2(419, 178)
+
+[node name="kolo" type="RigidBody2D" parent="pandulak"]
+center_of_mass_mode = 1
+script = ExtResource("1_m5ij5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pandulak/kolo"]
+shape = SubResource("CircleShape2D_k35wg")
+
+[node name="Panel" type="Panel" parent="pandulak/kolo"]
+offset_left = -24.0
+offset_top = -22.0
+offset_right = 16.0
+offset_bottom = 18.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PinJoint2D" type="PinJoint2D" parent="pandulak"]
+node_a = NodePath("../kolo")
+node_b = NodePath("../telo")
+
+[node name="telo" type="RigidBody2D" parent="pandulak"]
+position = Vector2(0, -32.635)
+collision_layer = 0
+collision_mask = 0
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 100)
+
+[node name="Panel" type="Panel" parent="pandulak/telo"]
+offset_left = -20.0
+offset_top = -21.365
+offset_right = 20.0
+offset_bottom = 18.635
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pandulak/telo"]
+shape = SubResource("CapsuleShape2D_eivqm")
