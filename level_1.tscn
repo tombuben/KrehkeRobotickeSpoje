@@ -336,7 +336,7 @@ texture = ExtResource("16_sy6a4")
 script = ExtResource("6_ahpbm")
 gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd", "gameOver")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameOver")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
@@ -344,7 +344,6 @@ position_smoothing_speed = 10.0
 script = ExtResource("9_mx74c")
 gameTitle = NodePath("../../Storyboard/ParkUvod")
 gameStart = [NodePath("../../Storyboard/ParkIntro1"), NodePath("../../Storyboard/ParkIntro2")]
-gameEnd = [NodePath("../../Storyboard/ParkOutro1"), NodePath("../../Storyboard/ParkOutro4"), NodePath("../../Storyboard/ParkOutro5")]
 gameOver = NodePath("../../Storyboard/GameOver")
 
 [node name="Storyboard" type="Node2D" parent="."]

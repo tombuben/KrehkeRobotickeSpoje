@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://va8bab1h3trr"]
 
 [ext_resource type="Script" path="res://IntroVideo.gd" id="1_sl42h"]
-[ext_resource type="VideoStream" path="res://art/videa/main_menu.ogv" id="2_2f88d"]
+[ext_resource type="VideoStream" path="res://art/videa/park_ending.ogv" id="2_cgxnl"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="3_xowga"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxgsc"]
@@ -21,7 +21,8 @@ offset_right = 933.334
 offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_2f88d")
+stream = ExtResource("2_cgxnl")
+volume_db = -20.0
 autoplay = true
 expand = true
 
