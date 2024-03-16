@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpiemp71u0v7l"]
+[gd_scene load_steps=24 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
@@ -9,6 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="7_bvag3"]
 [ext_resource type="Script" path="res://Friction.gd" id="7_ymntq"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_os6pc"]
+[ext_resource type="Script" path="res://CameraSwitcher.gd" id="10_momg8"]
+[ext_resource type="Script" path="res://StoryboardPlayer.gd" id="11_4s1fs"]
+[ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="12_l4ceb"]
+[ext_resource type="Texture2D" uid="uid://c0fuai8ej7745" path="res://art/storyboard/park/park_intro_1.jpg" id="13_s1v1l"]
+[ext_resource type="Script" path="res://storyboard.gd" id="14_4r3rw"]
+[ext_resource type="Texture2D" uid="uid://doi3la0c0mrr" path="res://art/storyboard/park/park_intro_2.jpg" id="15_7iwbp"]
+[ext_resource type="Texture2D" uid="uid://bupuetdew7tg6" path="res://art/storyboard/park/park_outro_1.jpg" id="16_c0uxg"]
+[ext_resource type="Texture2D" uid="uid://ble8folajkggg" path="res://art/storyboard/park/park_outro_2.jpg" id="17_5kyp6"]
+[ext_resource type="Texture2D" uid="uid://bvl8aag2ru7dp" path="res://art/storyboard/park/park_outro_3.jpg" id="18_pk6ql"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("6_axbdr")
@@ -132,6 +141,68 @@ script = ExtResource("8_os6pc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalTarget"]
 position = Vector2(-2, 66)
 shape = SubResource("RectangleShape2D_iy1vu")
+
+[node name="CameraSwitcher" type="Node2D" parent="." node_paths=PackedStringArray("gameplayCamera")]
+script = ExtResource("10_momg8")
+gameplayCamera = NodePath("")
+
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameStart", "gameEnd")]
+position = Vector2(-998, -1504)
+zoom = Vector2(1.75, 1.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("11_4s1fs")
+gameStart = [NodePath(""), NodePath("")]
+gameEnd = [NodePath(""), NodePath(""), NodePath("")]
+
+[node name="Storyboard" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Storyboard"]
+offset_left = -3948.0
+offset_top = -4813.0
+offset_right = -3520.0
+offset_bottom = -4671.0
+
+[node name="ColorRect" type="ColorRect" parent="Storyboard"]
+offset_left = -4123.0
+offset_top = -5300.0
+offset_right = -3323.0
+offset_bottom = -747.0
+color = Color(0, 0, 0, 1)
+
+[node name="ParkUvod" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -5000)
+texture = ExtResource("12_l4ceb")
+
+[node name="ParkIntro1" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -4616)
+texture = ExtResource("13_s1v1l")
+script = ExtResource("14_4r3rw")
+displayTime = 3.0
+
+[node name="ParkIntro2" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -4249)
+texture = ExtResource("15_7iwbp")
+script = ExtResource("14_4r3rw")
+displayTime = 2.0
+
+[node name="ParkOutro1" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -3778)
+texture = ExtResource("16_c0uxg")
+script = ExtResource("14_4r3rw")
+displayTime = 3.0
+
+[node name="ParkOutro4" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -2400)
+texture = ExtResource("17_5kyp6")
+script = ExtResource("14_4r3rw")
+displayTime = 2.0
+
+[node name="ParkOutro5" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -2000)
+texture = ExtResource("18_pk6ql")
+script = ExtResource("14_4r3rw")
+displayTime = 2.0
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
 [connection signal="body_entered" from="Krabice" to="Mimino/Node2D" method="_on_krabice_body_entered"]

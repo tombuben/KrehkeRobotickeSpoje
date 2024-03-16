@@ -206,19 +206,19 @@ displayTime = 2.0
 position = Vector2(-3700, -3778)
 texture = ExtResource("15_d117x")
 script = ExtResource("13_doyg1")
-displayTime = 2.0
+displayTime = 3.0
 
 [node name="ParkOutro4" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -2400)
 texture = ExtResource("16_pror3")
 script = ExtResource("13_doyg1")
-displayTime = 1.0
+displayTime = 2.0
 
 [node name="ParkOutro5" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -2000)
 texture = ExtResource("17_unuie")
 script = ExtResource("13_doyg1")
-displayTime = 1.0
+displayTime = 2.0
 
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)
