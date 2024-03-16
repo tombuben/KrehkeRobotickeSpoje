@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cv2vcdlx35fdb"]
+[gd_scene load_steps=26 format=3 uid="uid://cv2vcdlx35fdb"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_a48ek"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_e0cwa"]
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="3_ceeca"]
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="4_mak3f"]
 [ext_resource type="Script" path="res://CameraCenterer.gd" id="5_5vbhc"]
+[ext_resource type="Texture2D" uid="uid://c3i1b3qowrv6c" path="res://art/mesto/mesto.jpg" id="6_5q8x6"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="6_kmwe0"]
 [ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="6_q0rry"]
 [ext_resource type="Script" path="res://Friction.gd" id="7_ushj2"]
@@ -44,10 +45,10 @@ position = Vector2(50, 212)
 script = ExtResource("2_e0cwa")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 540, 219, 535, 254, 565.057, 270, 699, 265, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+polygon = PackedVector2Array(-551, 1025, -1002, 323, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 540, 219, 535, 254, 565.057, 270, 699, 265, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 4297, -411, 3811, 1164, 1442, 1060)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 540, 219, 535, 254, 565.057, 270, 699, 265, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+polygon = PackedVector2Array(-551, 1025, -1002, 323, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 540, 219, 535, 254, 565.057, 270, 699, 265, 769, 267, 963, 271, 1016, 239, 1086, 232, 1128, 188, 1222, 180, 1303, 195, 1333, 257, 1393, 296, 1513, 298, 1653, 294, 1750, 279, 1870, 242, 1951, 182, 1999, 151, 2077, 212, 2016, 307, 2134, 257, 2107, 208, 2156, 182, 2254, 179, 2339, 278, 2816, 349, 3324, 352, 3404, -512, 4297, -411, 3811, 1164, 1442, 1060)
 
 [node name="sisoun" parent="." instance=ExtResource("3_ceeca")]
 position = Vector2(674, 440)
@@ -63,10 +64,33 @@ pos1 = NodePath("../ona")
 pos2 = NodePath("../sisoun")
 
 [node name="CharactersCamera" type="Camera2D" parent="CameraCenterer"]
+position = Vector2(17, -175)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_offset = Vector2(30, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.8, 0.8)
+motion_offset = Vector2(30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(873, 291)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_5q8x6")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(2477, 319)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_5q8x6")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(4109, 369)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_5q8x6")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_fugcv")
