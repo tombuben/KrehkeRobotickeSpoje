@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=34 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://Level.gd" id="1_cbap4"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://egwl3bu6o6kk" path="res://art/trava/trava.png" id="16_sy6a4"]
 [ext_resource type="Texture2D" uid="uid://bvl8aag2ru7dp" path="res://art/storyboard/park/park_outro_3.jpg" id="17_unuie"]
 [ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="24_yy2jp"]
+[ext_resource type="Texture2D" uid="uid://b4i5oat7iob03" path="res://art/lavicka.png" id="28_acxc7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("3_fspt7")
@@ -55,10 +56,15 @@ position = Vector2(50, 212)
 script = ExtResource("2_nufue")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3324, 352, 3404, -512, 3423, 367, 3309, 620, 1408, 453)
+polygon = PackedVector2Array(138, 436, -508, 322, -621, -388, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3324, 352, 3313, -514, 3423, 367, 3309, 620, 1408, 453)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-276, 861, -508, 322, -621, -388, -348, -1480, 1547, -1449, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3324, 352, 3404, -512, 1903, -1328, 3147, -1507, 4356, -639, 3974, 1051, 1398, 832)
+polygon = PackedVector2Array(-276, 861, -508, 322, -621, -388, -348, -1480, 1547, -1449, 66, -414, 89, 152, 319, 171, 441, 200, 465, 221, 503, 234, 535, 254, 565.057, 270, 1444, 270, 3040, 339, 3338, 364, 3378, 345, 3410, 316, 3430, 290, 3458, 258, 3484, 198, 3488, 147, 3489, 96, 3478, 54, 3453, 25, 3422, 4, 3396, -17, 3404, -512, 1903, -1328, 3147, -1507, 4356, -639, 3974, 1051, 1398, 832)
+
+[node name="Lavicka" type="Sprite2D" parent="."]
+position = Vector2(3305, 483)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("28_acxc7")
 
 [node name="sisoun" parent="." instance=ExtResource("1_1j5ko")]
 position = Vector2(674, 440)
