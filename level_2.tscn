@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cv2vcdlx35fdb"]
+[gd_scene load_steps=28 format=3 uid="uid://cv2vcdlx35fdb"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_a48ek"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_e0cwa"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Friction.gd" id="7_ushj2"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_j552f"]
 [ext_resource type="Texture2D" uid="uid://cqrw63dltv63u" path="res://art/carry_stuff/krabice.png" id="9_jy2fh"]
+[ext_resource type="AudioStream" uid="uid://c7brxx2qvkugt" path="res://audio/boxdrop.ogg" id="9_m5vqu"]
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="11_n28tc"]
 [ext_resource type="Script" path="res://StoryboardPlayer.gd" id="12_hyrqr"]
 [ext_resource type="Texture2D" uid="uid://coh1tjngp5pxp" path="res://art/storyboard/mesto/doma_uvod.jpg" id="13_k584t"]
@@ -37,9 +38,10 @@ size = Vector2(177.757, 67)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("gameOverTextObject")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("gameOverTextObject", "game_over_player")]
 script = ExtResource("1_a48ek")
 gameOverTextObject = NodePath("CanvasLayer/GameOverScreen")
+game_over_player = NodePath("Krabice/AudioStreamPlayer")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(50, 212)
@@ -114,6 +116,9 @@ mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_1c1xu")
 max_contacts_reported = 2
 contact_monitor = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Krabice"]
+stream = ExtResource("9_m5vqu")
 
 [node name="Node2D" type="Node2D" parent="Krabice"]
 script = ExtResource("7_ushj2")
@@ -209,6 +214,7 @@ displayTime = 1.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("22_dmyl8")
+volume_db = -10.0
 autoplay = true
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]

@@ -1,6 +1,7 @@
 [gd_scene load_steps=35 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
+[ext_resource type="AudioStream" uid="uid://dava34u8plqpm" path="res://audio/Onion Capers.mp3" id="2_l8gib"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="3_6cygf"]
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="4_xgx00"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="7_bvag3"]
 [ext_resource type="Script" path="res://Friction.gd" id="7_ymntq"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_os6pc"]
+[ext_resource type="AudioStream" uid="uid://b4byxkqdtauj8" path="res://audio/chrocht.ogg" id="10_7cydc"]
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="10_momg8"]
 [ext_resource type="Script" path="res://StoryboardPlayer.gd" id="11_4s1fs"]
 [ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="12_l4ceb"]
@@ -47,9 +49,15 @@ size = Vector2(29.4114, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("gameOverTextObject")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("gameOverTextObject", "game_over_player")]
 script = ExtResource("1_yjqr6")
 gameOverTextObject = NodePath("CanvasLayer/GameOverScreen")
+game_over_player = NodePath("Krabice/AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l8gib")
+volume_db = -10.0
+autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(50, 212)
@@ -121,6 +129,9 @@ offset_right = 25.0
 offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Krabice"]
+stream = ExtResource("10_7cydc")
 
 [node name="Mimino" type="RigidBody2D" parent="."]
 position = Vector2(809, 162)

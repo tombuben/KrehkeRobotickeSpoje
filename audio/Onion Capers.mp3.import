@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dava34u8plqpm"
+path="res://.godot/imported/Onion Capers.mp3-9bd62d02171bbcf89238a688abe8b7af.mp3str"
+
+[deps]
+
+source_file="res://audio/Onion Capers.mp3"
+dest_files=["res://.godot/imported/Onion Capers.mp3-9bd62d02171bbcf89238a688abe8b7af.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
