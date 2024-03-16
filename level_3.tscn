@@ -1,12 +1,14 @@
-[gd_scene load_steps=35 format=3 uid="uid://dpiemp71u0v7l"]
+[gd_scene load_steps=43 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
 [ext_resource type="AudioStream" uid="uid://dava34u8plqpm" path="res://audio/Onion Capers.mp3" id="2_l8gib"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="3_6cygf"]
+[ext_resource type="Texture2D" uid="uid://b8oe7bc2rbpos" path="res://art/tovarna/dvere.png" id="4_il6mm"]
 [ext_resource type="PackedScene" uid="uid://fr2gabw8cqso" path="res://ona.tscn" id="4_xgx00"]
 [ext_resource type="Script" path="res://CameraCenterer.gd" id="5_aubxs"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="6_axbdr"]
+[ext_resource type="Texture2D" uid="uid://bwuaio71i5ldb" path="res://art/tovarna/tovarna.png" id="7_alre3"]
 [ext_resource type="Texture2D" uid="uid://coqpig88ad7yg" path="res://art/gameover.png" id="7_bvag3"]
 [ext_resource type="Script" path="res://Friction.gd" id="7_ymntq"]
 [ext_resource type="Script" path="res://GoalTarget.gd" id="8_os6pc"]
@@ -14,8 +16,11 @@
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="10_momg8"]
 [ext_resource type="Script" path="res://StoryboardPlayer.gd" id="11_4s1fs"]
 [ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="12_l4ceb"]
+[ext_resource type="Texture2D" uid="uid://b2sjmhwbkatxu" path="res://art/carry_stuff/krabice_rozbalena.png" id="12_lv37r"]
+[ext_resource type="Texture2D" uid="uid://byhjk86crg6l2" path="res://art/dite/ditetelo.png" id="13_rg167"]
 [ext_resource type="Texture2D" uid="uid://c0fuai8ej7745" path="res://art/storyboard/park/park_intro_1.jpg" id="13_s1v1l"]
 [ext_resource type="Script" path="res://storyboard.gd" id="14_4r3rw"]
+[ext_resource type="Texture2D" uid="uid://b48vvymwnywke" path="res://art/dite/ditekolo.png" id="14_r5m2d"]
 [ext_resource type="Texture2D" uid="uid://cna2ryes1bw81" path="res://art/ona/ona.jpg" id="15_divno"]
 [ext_resource type="Texture2D" uid="uid://b4a0jgsgdndjs" path="res://art/ona/onaruka.png" id="16_apqk6"]
 [ext_resource type="Texture2D" uid="uid://bopokpmxfmo11" path="res://art/ona/onapacka.png" id="17_dcnny"]
@@ -38,13 +43,17 @@ shader_parameter/projector_power = 0.497
 shader_parameter/vignette_param = 2.55
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1c1xu"]
-friction = 0.0
+rough = true
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqhxj"]
-size = Vector2(49.5146, 46)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xvn5"]
+size = Vector2(177.757, 67)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf7m3"]
-size = Vector2(29.4114, 30)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4o0u"]
+size = Vector2(77, 5.77814)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flju2"]
+radius = 20.0
+height = 130.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1vu"]
 size = Vector2(510, 398)
@@ -64,10 +73,15 @@ position = Vector2(50, 212)
 script = ExtResource("2_ot8qe")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-713, 996, -508, 322, -621, -388, -384, -1338, 215, -2098, 1167, -1822, 171.035, -1601.1, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1017, 275, 1085, 284, 1085, 276, 1092, 274, 1091, 284, 1130.95, 284.869, 1131, 291, 1138, 291, 1138.21, 285.026, 1183, 286, 1183, 279, 1190, 279, 1189, 286, 1287, 287, 1287, 296, 1298, 287, 1297, 296, 1308.83, 288.026, 1308, 296, 1320.72, 289.152, 1319, 298, 1330.74, 290.101, 1330, 298, 1341, 291.073, 1340, 299, 1351, 292, 1350, 299, 1361.68, 293.017, 1361, 300, 1372.06, 294.005, 1370, 301, 1381.47, 294.901, 1381, 302, 1393, 296, 1393, 303, 1404.14, 295.335, 1405, 303, 1414.2, 294.734, 1416, 302, 1424.44, 294.123, 1426, 300, 1433.27, 293.596, 1434, 300, 1441.92, 293.08, 1442, 299, 1450.97, 292.539, 1452, 299, 1460, 292, 1461, 299, 1471, 292, 1471, 299, 1482.67, 294.567, 1482, 301, 1493.74, 295.82, 1493, 302, 1504.26, 297.011, 1504, 304, 1517, 299, 1516, 308, 1532.52, 299.97, 1531, 311, 1546.5, 300.844, 1547, 311, 1557, 301, 1565, 302, 1565, 294, 1571, 293, 1571, 303, 1582.27, 301.763, 1582, 292, 1590, 291, 1589.63, 300.955, 1599.32, 299.891, 1600, 290, 1609, 289, 1608.42, 298.892, 1618.75, 297.76, 1619, 289, 1627, 288, 1627.1, 296.842, 1637.54, 295.697, 1637, 287, 1644, 286, 1643.82, 295.007, 1653, 294, 1653, 288, 1658, 288, 1659, 293, 1670.76, 292.59, 1670, 286, 1678, 285, 1679, 292, 1692.42, 291.593, 1693, 382, 1693, 394, 1906, 394, 1905, 383, 1702, 381, 1701.68, 291.313, 1745, 290, 1777.13, 288.433, 1777, 333, 1716, 335, 1715, 341, 1784, 340, 1784.65, 288.066, 1827, 286, 1868.54, 294.308, 1867, 345, 1800, 346, 1798, 352, 1917, 354, 1916, 349, 1873, 345, 1875.31, 295.662, 1882, 297, 1938, 307, 2016, 307, 2103, 284, 2154, 268, 2256, 247, 2255, 260, 2311, 261, 2312, 272, 2365, 273, 2365, 287, 2420, 287, 2423, 300, 2472, 301, 2472, 312, 2525, 312, 2526, 324, 2588, 324, 2588, 335, 2650, 335, 2649, 346, 2816, 349, 3243.67, 351.526, 3242, 270, 3266.8, 270.312, 3268, 261, 3283, 261, 3286.93, 270.564, 3293, 261, 3297, 271, 3331.49, 271.124, 3404, -512, 1782, -1829, 3683, -1325, 4810, -205, 4322, 1605, 1443, 1208)
+polygon = PackedVector2Array(-713, 996, -508, 322, -621, -388, -384, -1338, 215, -2098, 1167, -1822, 171.035, -1601.1, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 585, 244, 712, 268, 769, 267, 963, 271, 1017, 275, 1085, 284, 1085, 276, 1092, 274, 1091, 284, 1130.95, 284.869, 1131, 291, 1138, 291, 1138.21, 285.026, 1183, 286, 1183, 279, 1190, 279, 1189, 286, 1287, 287, 1287, 296, 1298, 287, 1297, 296, 1308.83, 288.026, 1308, 296, 1320.72, 289.152, 1319, 298, 1330.74, 290.101, 1330, 298, 1341, 291.073, 1340, 299, 1351, 292, 1350, 299, 1361.68, 293.017, 1361, 300, 1372.06, 294.005, 1370, 301, 1381.47, 294.901, 1381, 302, 1393, 296, 1393, 303, 1404.14, 295.335, 1405, 303, 1414.2, 294.734, 1416, 302, 1424.44, 294.123, 1426, 300, 1433.27, 293.596, 1434, 300, 1441.92, 293.08, 1442, 299, 1450.97, 292.539, 1452, 299, 1460, 292, 1461, 299, 1471, 292, 1471, 299, 1482.67, 294.567, 1482, 301, 1493.74, 295.82, 1493, 302, 1504.26, 297.011, 1504, 304, 1517, 299, 1516, 308, 1532.52, 299.97, 1531, 311, 1546.5, 300.844, 1547, 311, 1557, 301, 1565, 302, 1565, 294, 1571, 293, 1571, 303, 1582.27, 301.763, 1582, 292, 1590, 291, 1589.63, 300.955, 1599.32, 299.891, 1600, 290, 1609, 289, 1608.42, 298.892, 1618.75, 297.76, 1619, 289, 1627, 288, 1627.1, 296.842, 1637.54, 295.697, 1637, 287, 1644, 286, 1643.82, 295.007, 1653, 294, 1653, 288, 1658, 288, 1659, 293, 1670.76, 292.59, 1670, 286, 1678, 285, 1679, 292, 1692.42, 291.593, 1693, 382, 1693, 394, 1906, 394, 1905, 383, 1702, 381, 1701.68, 291.313, 1745, 290, 1777.13, 288.433, 1777, 333, 1716, 335, 1715, 341, 1784, 340, 1784.65, 288.066, 1827, 286, 1868.54, 294.308, 1867, 345, 1800, 346, 1798, 352, 1917, 354, 1916, 349, 1873, 345, 1875.31, 295.662, 1882, 297, 1938, 307, 2016, 307, 2103, 284, 2154, 268, 2256, 247, 2255, 260, 2311, 261, 2312, 272, 2365, 273, 2365, 287, 2420, 287, 2423, 300, 2472, 301, 2472, 312, 2525, 312, 2526, 324, 2588, 324, 2588, 335, 2650, 335, 2649, 346, 2816, 349, 3092, 352, 3093, 22, 3098, -256, 3089, -622, 1782, -1829, 3683, -1325, 4810, -205, 4322, 1605, 1443, 1208)
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-713, 996, -508, 322, -621, -388, -384, -1338, 215, -2098, 1167, -1822, 171.035, -1601.1, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 565.057, 270, 715, 244, 769, 267, 963, 271, 1017, 275, 1085, 284, 1085, 276, 1092, 274, 1091, 284, 1130.95, 284.869, 1131, 291, 1138, 291, 1138.21, 285.026, 1183, 286, 1183, 279, 1190, 279, 1189, 286, 1287, 287, 1287, 296, 1298, 287, 1297, 296, 1308.83, 288.026, 1308, 296, 1320.72, 289.152, 1319, 298, 1330.74, 290.101, 1330, 298, 1341, 291.073, 1340, 299, 1351, 292, 1350, 299, 1361.68, 293.017, 1361, 300, 1372.06, 294.005, 1370, 301, 1381.47, 294.901, 1381, 302, 1393, 296, 1393, 303, 1404.14, 295.335, 1405, 303, 1414.2, 294.734, 1416, 302, 1424.44, 294.123, 1426, 300, 1433.27, 293.596, 1434, 300, 1441.92, 293.08, 1442, 299, 1450.97, 292.539, 1452, 299, 1460, 292, 1461, 299, 1471, 292, 1471, 299, 1482.67, 294.567, 1482, 301, 1493.74, 295.82, 1493, 302, 1504.26, 297.011, 1504, 304, 1517, 299, 1516, 308, 1532.52, 299.97, 1531, 311, 1546.5, 300.844, 1547, 311, 1557, 301, 1565, 302, 1565, 294, 1571, 293, 1571, 303, 1582.27, 301.763, 1582, 292, 1590, 291, 1589.63, 300.955, 1599.32, 299.891, 1600, 290, 1609, 289, 1608.42, 298.892, 1618.75, 297.76, 1619, 289, 1627, 288, 1627.1, 296.842, 1637.54, 295.697, 1637, 287, 1644, 286, 1643.82, 295.007, 1653, 294, 1653, 288, 1658, 288, 1659, 293, 1670.76, 292.59, 1670, 286, 1678, 285, 1679, 292, 1692.42, 291.593, 1693, 382, 1693, 394, 1906, 394, 1905, 383, 1702, 381, 1701.68, 291.313, 1745, 290, 1777.13, 288.433, 1777, 333, 1716, 335, 1715, 341, 1784, 340, 1784.65, 288.066, 1827, 286, 1868.54, 294.308, 1867, 345, 1800, 346, 1798, 352, 1917, 354, 1916, 349, 1873, 345, 1875.31, 295.662, 1882, 297, 1938, 307, 2016, 307, 2103, 284, 2154, 268, 2256, 247, 2255, 260, 2311, 261, 2312, 272, 2365, 273, 2365, 287, 2420, 287, 2423, 300, 2472, 301, 2472, 312, 2525, 312, 2526, 324, 2588, 324, 2588, 335, 2650, 335, 2649, 346, 2816, 349, 3243.67, 351.526, 3242, 270, 3266.8, 270.312, 3268, 261, 3283, 261, 3286.93, 270.564, 3293, 261, 3297, 271, 3331.49, 271.124, 3404, -512, 1782, -1829, 3683, -1325, 4810, -205, 4322, 1605, 1443, 1208)
+polygon = PackedVector2Array(-713, 996, -508, 322, -621, -388, -384, -1338, 215, -2098, 1167, -1822, 171.035, -1601.1, 66, -414, 89, 152, 319, 171, 441, 200, 535, 185, 566, 223, 535, 254, 585, 244, 712, 268, 769, 267, 963, 271, 1017, 275, 1085, 284, 1085, 276, 1092, 274, 1091, 284, 1130.95, 284.869, 1131, 291, 1138, 291, 1138.21, 285.026, 1183, 286, 1183, 279, 1190, 279, 1189, 286, 1287, 287, 1287, 296, 1298, 287, 1297, 296, 1308.83, 288.026, 1308, 296, 1320.72, 289.152, 1319, 298, 1330.74, 290.101, 1330, 298, 1341, 291.073, 1340, 299, 1351, 292, 1350, 299, 1361.68, 293.017, 1361, 300, 1372.06, 294.005, 1370, 301, 1381.47, 294.901, 1381, 302, 1393, 296, 1393, 303, 1404.14, 295.335, 1405, 303, 1414.2, 294.734, 1416, 302, 1424.44, 294.123, 1426, 300, 1433.27, 293.596, 1434, 300, 1441.92, 293.08, 1442, 299, 1450.97, 292.539, 1452, 299, 1460, 292, 1461, 299, 1471, 292, 1471, 299, 1482.67, 294.567, 1482, 301, 1493.74, 295.82, 1493, 302, 1504.26, 297.011, 1504, 304, 1517, 299, 1516, 308, 1532.52, 299.97, 1531, 311, 1546.5, 300.844, 1547, 311, 1557, 301, 1565, 302, 1565, 294, 1571, 293, 1571, 303, 1582.27, 301.763, 1582, 292, 1590, 291, 1589.63, 300.955, 1599.32, 299.891, 1600, 290, 1609, 289, 1608.42, 298.892, 1618.75, 297.76, 1619, 289, 1627, 288, 1627.1, 296.842, 1637.54, 295.697, 1637, 287, 1644, 286, 1643.82, 295.007, 1653, 294, 1653, 288, 1658, 288, 1659, 293, 1670.76, 292.59, 1670, 286, 1678, 285, 1679, 292, 1692.42, 291.593, 1693, 382, 1693, 394, 1906, 394, 1905, 383, 1702, 381, 1701.68, 291.313, 1745, 290, 1777.13, 288.433, 1777, 333, 1716, 335, 1715, 341, 1784, 340, 1784.65, 288.066, 1827, 286, 1868.54, 294.308, 1867, 345, 1800, 346, 1798, 352, 1917, 354, 1916, 349, 1873, 345, 1875.31, 295.662, 1882, 297, 1938, 307, 2016, 307, 2103, 284, 2154, 268, 2256, 247, 2255, 260, 2311, 261, 2312, 272, 2365, 273, 2365, 287, 2420, 287, 2423, 300, 2472, 301, 2472, 312, 2525, 312, 2526, 324, 2588, 324, 2588, 335, 2650, 335, 2649, 346, 2816, 349, 3092, 352, 3093, 22, 3098, -256, 3089, -622, 1782, -1829, 3683, -1325, 4810, -205, 4322, 1605, 1443, 1208)
+
+[node name="Dvere" type="Sprite2D" parent="."]
+position = Vector2(3268, 418)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_il6mm")
 
 [node name="sisoun" parent="." instance=ExtResource("3_6cygf")]
 position = Vector2(674, 440)
@@ -83,10 +97,23 @@ pos1 = NodePath("../ona")
 pos2 = NodePath("../sisoun")
 
 [node name="CharactersCamera" type="Camera2D" parent="CameraCenterer"]
+position = Vector2(-4, -145)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_offset = Vector2(30, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+motion_offset = Vector2(30, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(580, 235)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_alre3")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_fugcv")
@@ -113,28 +140,32 @@ contact_monitor = true
 [node name="Node2D" type="Node2D" parent="Krabice"]
 script = ExtResource("7_ymntq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
-scale = Vector2(4.12, 1)
-shape = SubResource("RectangleShape2D_eqhxj")
-
-[node name="ColorRect" type="ColorRect" parent="Krabice/CollisionShape2D"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -24.0
-offset_right = 25.0
-offset_bottom = 23.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Krabice"]
 stream = ExtResource("10_7cydc")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Krabice"]
+scale = Vector2(0.9, 0.9)
+shape = SubResource("RectangleShape2D_4xvn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Krabice/CollisionShape2D"]
+position = Vector2(4.44444, -21.1111)
+rotation = -0.0349066
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_lv37r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Krabice"]
+position = Vector2(-93, -44)
+rotation = 0.651888
+shape = SubResource("RectangleShape2D_h4o0u")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Krabice"]
+position = Vector2(86, -30)
+rotation = -0.303822
+shape = SubResource("RectangleShape2D_h4o0u")
+
 [node name="Mimino" type="RigidBody2D" parent="."]
 position = Vector2(809, 162)
+rotation = -1.5708
 collision_layer = 7
 collision_mask = 7
 mass = 5.0
@@ -146,15 +177,17 @@ contact_monitor = true
 script = ExtResource("7_ymntq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mimino"]
-scale = Vector2(4.12, 1)
-shape = SubResource("RectangleShape2D_lf7m3")
+shape = SubResource("CapsuleShape2D_flju2")
 
-[node name="ColorRect" type="ColorRect" parent="Mimino/CollisionShape2D"]
-offset_left = -15.0
-offset_top = -15.0
-offset_right = 16.045
-offset_bottom = 15.03
-scale = Vector2(0.956, 1)
+[node name="Sprite2D" type="Sprite2D" parent="Mimino/CollisionShape2D"]
+position = Vector2(0.137075, -19.0258)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_rg167")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Mimino/CollisionShape2D"]
+position = Vector2(-1.72773, 50.13)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_r5m2d")
 
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)
