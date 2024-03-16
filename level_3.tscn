@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dpiemp71u0v7l"]
+[gd_scene load_steps=45 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
 [ext_resource type="AudioStream" uid="uid://dava34u8plqpm" path="res://audio/Onion Capers.mp3" id="2_l8gib"]
@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://b4byxkqdtauj8" path="res://audio/chrocht.ogg" id="10_7cydc"]
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="10_momg8"]
 [ext_resource type="Script" path="res://StoryboardPlayer.gd" id="11_4s1fs"]
-[ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="12_l4ceb"]
 [ext_resource type="Texture2D" uid="uid://b2sjmhwbkatxu" path="res://art/carry_stuff/krabice_rozbalena.png" id="12_lv37r"]
 [ext_resource type="Texture2D" uid="uid://c0fuai8ej7745" path="res://art/storyboard/park/park_intro_1.jpg" id="13_s1v1l"]
 [ext_resource type="Script" path="res://storyboard.gd" id="14_4r3rw"]
@@ -25,11 +24,14 @@
 [ext_resource type="Texture2D" uid="uid://b48vvymwnywke" path="res://art/dite/ditekolo.png" id="16_g05kt"]
 [ext_resource type="Texture2D" uid="uid://bopokpmxfmo11" path="res://art/ona/onapacka.png" id="17_dcnny"]
 [ext_resource type="Texture2D" uid="uid://cthr2qd7e12vc" path="res://art/ona/onatelo.png" id="18_sni5s"]
+[ext_resource type="Texture2D" uid="uid://cjonqwu4pp56p" path="res://art/storyboard/tovarna/tovarna_uvod.jpg" id="19_fv8cg"]
 [ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="19_j7lwc"]
 [ext_resource type="Texture2D" uid="uid://ceptg82arg2hg" path="res://art/ona/onahlava.png" id="19_rapbs"]
 [ext_resource type="Texture2D" uid="uid://c0lwgq4gj68is" path="res://art/ona/onanoha.png" id="20_lyubu"]
+[ext_resource type="Texture2D" uid="uid://b18detd614io1" path="res://art/storyboard/tovarna/tovarna_intro_1.jpg" id="21_frkkm"]
 [ext_resource type="Texture2D" uid="uid://p1sbcuoqfn75" path="res://art/ona/onakolo.png" id="21_srbad"]
 [ext_resource type="Texture2D" uid="uid://crofsfjf38tq4" path="res://art/sisoun/sisoun-postava.png" id="22_mdn6t"]
+[ext_resource type="Texture2D" uid="uid://cx7n7hgudj2pw" path="res://art/storyboard/tovarna/tovarna_intro_2.jpg" id="22_oc3lh"]
 [ext_resource type="Texture2D" uid="uid://clh7501p8cbld" path="res://art/sisoun/sisoun-telo.png" id="23_h3o8g"]
 [ext_resource type="Texture2D" uid="uid://70hm3vid177x" path="res://art/sisoun/sisoun-hlava.png" id="24_e0c0j"]
 [ext_resource type="Texture2D" uid="uid://bbj7mtygx3blu" path="res://art/sisoun/sisoun-ruka.png" id="25_ycosf"]
@@ -201,15 +203,14 @@ shape = SubResource("RectangleShape2D_iy1vu")
 script = ExtResource("10_momg8")
 gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd", "gameOver")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameOver")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("11_4s1fs")
 gameTitle = NodePath("../../Storyboard/TovarnaUvod")
-gameStart = [NodePath("../../Storyboard/BojODite1/TovarnaBoj1"), NodePath("../../Storyboard/BojODite2/TovarnaBoj2"), NodePath("../../Storyboard/BojODite3/TovarnaBoj3"), NodePath("../../Storyboard/BojODite4/TovarnaBoj4"), NodePath("../../Storyboard/BojODite5/TovarnaBoj5"), NodePath("../../Storyboard/BojODite6/TovarnaBoj6")]
-gameEnd = [null, null, null]
+gameStart = [NodePath("../../Storyboard/TovarnaIntro1"), NodePath("../../Storyboard/TovarnaIntro2")]
 gameOver = NodePath("../../Storyboard/GameOver")
 
 [node name="Storyboard" type="Node2D" parent="."]
@@ -229,12 +230,24 @@ color = Color(0, 0, 0, 1)
 
 [node name="TovarnaUvod" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -5000)
-texture = ExtResource("12_l4ceb")
+texture = ExtResource("19_fv8cg")
+script = ExtResource("14_4r3rw")
+displayTime = 3.0
+
+[node name="TovarnaIntro1" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3714, -4550)
+texture = ExtResource("21_frkkm")
+script = ExtResource("14_4r3rw")
+displayTime = 4.0
+
+[node name="TovarnaIntro2" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3726, -4130)
+texture = ExtResource("22_oc3lh")
 script = ExtResource("14_4r3rw")
 displayTime = 3.0
 
 [node name="BojODite1" type="Node2D" parent="Storyboard"]
-position = Vector2(-9, 1430)
+position = Vector2(-22, 3182)
 
 [node name="TovarnaBoj1" type="Sprite2D" parent="Storyboard/BojODite1"]
 position = Vector2(-3700, -4616)
@@ -372,7 +385,7 @@ scale = Vector2(0.9625, 0.9625)
 texture = ExtResource("28_0j2bt")
 
 [node name="BojODite2" type="Node2D" parent="Storyboard"]
-position = Vector2(-9, 1430)
+position = Vector2(-22, 3182)
 
 [node name="TovarnaBoj2" type="Sprite2D" parent="Storyboard/BojODite2"]
 position = Vector2(-3700, -4226)
@@ -509,7 +522,7 @@ scale = Vector2(0.9625, 0.9625)
 texture = ExtResource("28_0j2bt")
 
 [node name="BojODite3" type="Node2D" parent="Storyboard"]
-position = Vector2(-9, 1430)
+position = Vector2(-22, 3182)
 scale = Vector2(0.988375, 0.896271)
 
 [node name="TovarnaBoj3" type="Sprite2D" parent="Storyboard/BojODite3"]
@@ -646,7 +659,7 @@ scale = Vector2(0.9625, 0.9625)
 texture = ExtResource("28_0j2bt")
 
 [node name="BojODite4" type="Node2D" parent="Storyboard"]
-position = Vector2(-29, 1769)
+position = Vector2(-42, 3521)
 scale = Vector2(0.988375, 0.896271)
 
 [node name="TovarnaBoj4" type="Sprite2D" parent="Storyboard/BojODite4"]
@@ -736,7 +749,7 @@ texture = ExtResource("21_srbad")
 polygon = PackedVector2Array(-3385.36, -4153.88, -3720.25, -4156.11, -3720.25, -4142.72, -3764.77, -4140.49, -3765.78, -4118.18, -3813.33, -4117.06, -3811.31, -4098.09, -3861.9, -4099.21, -3860.88, -4085.82, -3913.49, -4086.94, -3913.49, -4064.62, -4041.99, -4064.62, -4047.05, -4014.41, -4048.06, -3982.06, -3384.34, -3988.75)
 
 [node name="BojODite5" type="Node2D" parent="Storyboard"]
-position = Vector2(-42, 2278)
+position = Vector2(-55, 4030)
 scale = Vector2(0.988375, 0.896271)
 
 [node name="TovarnaBoj5" type="Sprite2D" parent="Storyboard/BojODite5"]
@@ -826,7 +839,7 @@ texture = ExtResource("21_srbad")
 polygon = PackedVector2Array(-3385.36, -4153.88, -3720.25, -4156.11, -3720.25, -4142.72, -3764.77, -4140.49, -3765.78, -4118.18, -3813.33, -4117.06, -3811.31, -4098.09, -3861.9, -4099.21, -3860.88, -4085.82, -3913.49, -4086.94, -3913.49, -4064.62, -4041.99, -4064.62, -4047.05, -4014.41, -4048.06, -3982.06, -3384.34, -3988.75)
 
 [node name="BojODite6" type="Node2D" parent="Storyboard"]
-position = Vector2(-130, 2817)
+position = Vector2(-143, 4569)
 scale = Vector2(0.988375, 0.896271)
 
 [node name="TovarnaBoj6" type="Sprite2D" parent="Storyboard/BojODite6"]
