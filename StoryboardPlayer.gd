@@ -1,7 +1,14 @@
 class_name storyboardPlayer extends Camera2D
 
+@export var gameTitle: storyboard
 @export var gameStart: Array[storyboard]
 @export var gameEnd: Array[storyboard]
+
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
+func playLevelTitle():
+	await activate(gameTitle)
 
 func playLevelIntro():
 	for storyboard in gameStart:

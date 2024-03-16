@@ -3,7 +3,6 @@ extends Node
 var level : int = 1
 
 var MAX_LVL_COUNT = 3
-var BLOCK_INPUT: bool = false
 var LEVEL_CUTSCENE_FINISHED : bool = false
 
 # Called when the node enters the scene tree for the first time.

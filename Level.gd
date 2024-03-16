@@ -1,9 +1,12 @@
 extends Node2D
 
-var is_game_over = false
 @export var gameOverTextObject : Node2D
+@export var nacobicSisatosti: float
 
 @onready var cameraSwitcher : CameraSwitcher = $CameraSwitcher
+@onready var sisoun : = $sisoun
+
+var is_game_over = false
 
 func _on_krabice_body_entered(body):
 	if body is KillBody and is_game_over == false:
@@ -13,11 +16,7 @@ func _on_krabice_body_entered(body):
 		
 func _ready():
 	if not Global.LEVEL_CUTSCENE_FINISHED:	
-		Global.BLOCK_INPUT = true
-		await get_tree().create_timer(2).timeout
-		await cameraSwitcher.activateIntro()
-		await get_tree().create_timer(1).timeout
-		Global.BLOCK_INPUT = false
+		play_level_intro()
 		
 	Global.LEVEL_CUTSCENE_FINISHED = true
 
@@ -25,8 +24,24 @@ func _on_goal_target_body_entered(body):
 	if body.name == "Krabice" and is_game_over == false:
 		is_game_over = true
 		progress_stage()
+		
+func play_level_intro():
+	pause_game(true)
+	await cameraSwitcher.activateTitle()
+	await get_tree().create_timer(2).timeout
+	await cameraSwitcher.activateIntro()
+	await get_tree().create_timer(1).timeout
+	pause_game(false)
+	
+func pause_game(pause : bool):
+	get_tree().paused = pause
+	
+func play_level_outro():
+	await get_tree().create_timer(1).timeout
+	await cameraSwitcher.activateOutro()
 
 func progress_stage():
+	await play_level_outro()
 	#todo move the camera to some slides with story, then, when no slides are available...
 	Global.progress_level()
 

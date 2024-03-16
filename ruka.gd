@@ -25,9 +25,6 @@ func init_ruka(set_player : int):
 		up_action = "Player2Up"
 		down_action = "Player2Down"
 		is_controller = true
-		
-
-	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,8 +40,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if Global.BLOCK_INPUT:
-		return
 	if is_controller:
 		var input_strenght = Input.get_axis(down_action, up_action)
 		mover.rotate(input_strenght * rotation_speed)

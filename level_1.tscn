@@ -162,12 +162,13 @@ shape = SubResource("CapsuleShape2D_jd27c")
 script = ExtResource("6_ahpbm")
 gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameStart", "gameEnd")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("9_mx74c")
+gameTitle = NodePath("../../Storyboard/ParkUvod")
 gameStart = [NodePath("../../Storyboard/ParkIntro1"), NodePath("../../Storyboard/ParkIntro2")]
 gameEnd = [NodePath("../../Storyboard/ParkOutro1"), NodePath("../../Storyboard/ParkOutro4"), NodePath("../../Storyboard/ParkOutro5")]
 
@@ -189,6 +190,8 @@ color = Color(0, 0, 0, 1)
 [node name="ParkUvod" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -5000)
 texture = ExtResource("7_m0xvp")
+script = ExtResource("13_doyg1")
+displayTime = 3.0
 
 [node name="ParkIntro1" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -4616)

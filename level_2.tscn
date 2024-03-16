@@ -12,13 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://cqrw63dltv63u" path="res://art/carry_stuff/krabice.png" id="9_jy2fh"]
 [ext_resource type="Script" path="res://CameraSwitcher.gd" id="11_n28tc"]
 [ext_resource type="Script" path="res://StoryboardPlayer.gd" id="12_hyrqr"]
-[ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="13_5odp1"]
-[ext_resource type="Texture2D" uid="uid://c0fuai8ej7745" path="res://art/storyboard/park/park_intro_1.jpg" id="14_auqnv"]
+[ext_resource type="Texture2D" uid="uid://coh1tjngp5pxp" path="res://art/storyboard/mesto/doma_uvod.jpg" id="13_k584t"]
+[ext_resource type="Texture2D" uid="uid://c8ypxii6e23uh" path="res://art/storyboard/mesto/doma_intro_1.jpg" id="15_6y0kh"]
 [ext_resource type="Script" path="res://storyboard.gd" id="15_itv0g"]
-[ext_resource type="Texture2D" uid="uid://doi3la0c0mrr" path="res://art/storyboard/park/park_intro_2.jpg" id="16_l103a"]
-[ext_resource type="Texture2D" uid="uid://bupuetdew7tg6" path="res://art/storyboard/park/park_outro_1.jpg" id="17_vbwfh"]
-[ext_resource type="Texture2D" uid="uid://ble8folajkggg" path="res://art/storyboard/park/park_outro_2.jpg" id="18_kcvic"]
-[ext_resource type="Texture2D" uid="uid://bvl8aag2ru7dp" path="res://art/storyboard/park/park_outro_3.jpg" id="19_qna4g"]
+[ext_resource type="Texture2D" uid="uid://d0h1khbe3p8vm" path="res://art/storyboard/mesto/doma_outro_2.jpg" id="16_k142d"]
+[ext_resource type="Texture2D" uid="uid://bpltq66j1umgs" path="res://art/storyboard/mesto/doma_outro_3.jpg" id="17_27fww"]
+[ext_resource type="Texture2D" uid="uid://pp3l8c23b4k1" path="res://art/storyboard/mesto/doma_outro_4.jpg" id="18_1gock"]
+[ext_resource type="Texture2D" uid="uid://cmxxk87b14yra" path="res://art/storyboard/mesto/doma_outro_5.jpg" id="19_1wv5p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("6_kmwe0")
@@ -113,14 +113,15 @@ shape = SubResource("RectangleShape2D_iy1vu")
 script = ExtResource("11_n28tc")
 gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameStart", "gameEnd")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("12_hyrqr")
-gameStart = [NodePath(""), NodePath("")]
-gameEnd = [NodePath(""), NodePath(""), NodePath("")]
+gameTitle = NodePath("../../Storyboard/DomaUvod")
+gameStart = [NodePath("../../Storyboard/DomaIntro1")]
+gameEnd = [NodePath("../../Storyboard/DomaOutro2"), NodePath("../../Storyboard/DomaOutro3"), NodePath("../../Storyboard/DomaOutro4"), NodePath("../../Storyboard/DomaOutro5")]
 
 [node name="Storyboard" type="Node2D" parent="."]
 
@@ -137,37 +138,39 @@ offset_right = -3323.0
 offset_bottom = -747.0
 color = Color(0, 0, 0, 1)
 
-[node name="ParkUvod" type="Sprite2D" parent="Storyboard"]
-position = Vector2(-3700, -5000)
-texture = ExtResource("13_5odp1")
-
-[node name="ParkIntro1" type="Sprite2D" parent="Storyboard"]
-position = Vector2(-3700, -4616)
-texture = ExtResource("14_auqnv")
+[node name="DomaUvod" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -5052)
+texture = ExtResource("13_k584t")
 script = ExtResource("15_itv0g")
 displayTime = 3.0
 
-[node name="ParkIntro2" type="Sprite2D" parent="Storyboard"]
-position = Vector2(-3700, -4249)
-texture = ExtResource("16_l103a")
-script = ExtResource("15_itv0g")
-displayTime = 2.0
-
-[node name="ParkOutro1" type="Sprite2D" parent="Storyboard"]
-position = Vector2(-3700, -3778)
-texture = ExtResource("17_vbwfh")
+[node name="DomaIntro1" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -4650)
+texture = ExtResource("15_6y0kh")
 script = ExtResource("15_itv0g")
 displayTime = 3.0
 
-[node name="ParkOutro4" type="Sprite2D" parent="Storyboard"]
-position = Vector2(-3700, -2400)
-texture = ExtResource("18_kcvic")
+[node name="DomaOutro2" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -4229)
+texture = ExtResource("16_k142d")
+script = ExtResource("15_itv0g")
+displayTime = 3.0
+
+[node name="DomaOutro3" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -3802)
+texture = ExtResource("17_27fww")
 script = ExtResource("15_itv0g")
 displayTime = 2.0
 
-[node name="ParkOutro5" type="Sprite2D" parent="Storyboard"]
-position = Vector2(-3700, -2000)
-texture = ExtResource("19_qna4g")
+[node name="DomaOutro4" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -3336)
+texture = ExtResource("18_1gock")
+script = ExtResource("15_itv0g")
+displayTime = 2.0
+
+[node name="DomaOutro5" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3700, -2901)
+texture = ExtResource("19_1wv5p")
 script = ExtResource("15_itv0g")
 displayTime = 2.0
 
