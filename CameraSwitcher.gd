@@ -24,6 +24,9 @@ func activateIntro():
 func activateOutro():
 	await storyboardPlayer.playLevelOutro()
 	activateGameplayCamera()
+	
+func activateGameOver():
+	await storyboardPlayer.playLevelGameOver()
 
 func activateGameplayCamera():
 	gameplayCamera.make_current()

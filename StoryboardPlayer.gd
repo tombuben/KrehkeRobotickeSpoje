@@ -3,6 +3,7 @@ class_name storyboardPlayer extends Camera2D
 @export var gameTitle: storyboard
 @export var gameStart: Array[storyboard]
 @export var gameEnd: Array[storyboard]
+@export var gameOver: storyboard
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -17,7 +18,10 @@ func playLevelIntro():
 func playLevelOutro():
 	for storyboard in gameEnd:
 		await activate(storyboard)
-
+		
+func playLevelGameOver():
+	position_smoothing_enabled = false
+	await activate(gameOver)
 
 func activate(board: storyboard):
 	if board != null:

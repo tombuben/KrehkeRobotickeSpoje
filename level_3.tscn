@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dpiemp71u0v7l"]
+[gd_scene load_steps=25 format=3 uid="uid://dpiemp71u0v7l"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_yjqr6"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_ot8qe"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bupuetdew7tg6" path="res://art/storyboard/park/park_outro_1.jpg" id="16_c0uxg"]
 [ext_resource type="Texture2D" uid="uid://ble8folajkggg" path="res://art/storyboard/park/park_outro_2.jpg" id="17_5kyp6"]
 [ext_resource type="Texture2D" uid="uid://bvl8aag2ru7dp" path="res://art/storyboard/park/park_outro_3.jpg" id="18_pk6ql"]
+[ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="19_j7lwc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("6_axbdr")
@@ -142,18 +143,18 @@ script = ExtResource("8_os6pc")
 position = Vector2(-2, 66)
 shape = SubResource("RectangleShape2D_iy1vu")
 
-[node name="CameraSwitcher" type="Node2D" parent="." node_paths=PackedStringArray("gameplayCamera")]
+[node name="CameraSwitcher" type="Node2D" parent="."]
 script = ExtResource("10_momg8")
-gameplayCamera = NodePath("")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameStart", "gameEnd")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameStart", "gameEnd", "gameOver")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("11_4s1fs")
-gameStart = [NodePath(""), NodePath("")]
-gameEnd = [NodePath(""), NodePath(""), NodePath("")]
+gameStart = [null, null]
+gameEnd = [null, null, null]
+gameOver = NodePath("../../Storyboard/GameOver")
 
 [node name="Storyboard" type="Node2D" parent="."]
 
@@ -167,7 +168,7 @@ offset_bottom = -4671.0
 offset_left = -4123.0
 offset_top = -5300.0
 offset_right = -3323.0
-offset_bottom = -747.0
+offset_bottom = 3930.0
 color = Color(0, 0, 0, 1)
 
 [node name="ParkUvod" type="Sprite2D" parent="Storyboard"]
@@ -203,6 +204,12 @@ position = Vector2(-3700, -2000)
 texture = ExtResource("18_pk6ql")
 script = ExtResource("14_4r3rw")
 displayTime = 2.0
+
+[node name="GameOver" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3714, 3202)
+texture = ExtResource("19_j7lwc")
+script = ExtResource("14_4r3rw")
+displayTime = 1.0
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
 [connection signal="body_entered" from="Krabice" to="Mimino/Node2D" method="_on_krabice_body_entered"]

@@ -47,6 +47,8 @@ func progress_stage():
 
 func game_over():
 	await get_tree().create_timer(1).timeout
-	gameOverTextObject.visible = true
+	await cameraSwitcher.activateGameOver()
+	#replacated by storyboard cart
+	#gameOverTextObject.visible = true
 	await get_tree().create_timer(5).timeout
 	Global.reset_level()

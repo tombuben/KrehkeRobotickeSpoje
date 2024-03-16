@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cv2vcdlx35fdb"]
+[gd_scene load_steps=25 format=3 uid="uid://cv2vcdlx35fdb"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_a48ek"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_e0cwa"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bpltq66j1umgs" path="res://art/storyboard/mesto/doma_outro_3.jpg" id="17_27fww"]
 [ext_resource type="Texture2D" uid="uid://pp3l8c23b4k1" path="res://art/storyboard/mesto/doma_outro_4.jpg" id="18_1gock"]
 [ext_resource type="Texture2D" uid="uid://cmxxk87b14yra" path="res://art/storyboard/mesto/doma_outro_5.jpg" id="19_1wv5p"]
+[ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="20_n6dg8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("6_kmwe0")
@@ -113,15 +114,15 @@ shape = SubResource("RectangleShape2D_iy1vu")
 script = ExtResource("11_n28tc")
 gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd", "gameOver")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 script = ExtResource("12_hyrqr")
 gameTitle = NodePath("../../Storyboard/DomaUvod")
 gameStart = [NodePath("../../Storyboard/DomaIntro1")]
 gameEnd = [NodePath("../../Storyboard/DomaOutro2"), NodePath("../../Storyboard/DomaOutro3"), NodePath("../../Storyboard/DomaOutro4"), NodePath("../../Storyboard/DomaOutro5")]
+gameOver = NodePath("../../Storyboard/GameOver")
 
 [node name="Storyboard" type="Node2D" parent="."]
 
@@ -135,7 +136,7 @@ offset_bottom = -4671.0
 offset_left = -4123.0
 offset_top = -5300.0
 offset_right = -3323.0
-offset_bottom = -747.0
+offset_bottom = 3640.0
 color = Color(0, 0, 0, 1)
 
 [node name="DomaUvod" type="Sprite2D" parent="Storyboard"]
@@ -148,31 +149,37 @@ displayTime = 3.0
 position = Vector2(-3700, -4650)
 texture = ExtResource("15_6y0kh")
 script = ExtResource("15_itv0g")
-displayTime = 3.0
+displayTime = 5.0
 
 [node name="DomaOutro2" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -4229)
 texture = ExtResource("16_k142d")
 script = ExtResource("15_itv0g")
-displayTime = 3.0
+displayTime = 4.0
 
 [node name="DomaOutro3" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -3802)
 texture = ExtResource("17_27fww")
 script = ExtResource("15_itv0g")
-displayTime = 2.0
+displayTime = 3.0
 
 [node name="DomaOutro4" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -3336)
 texture = ExtResource("18_1gock")
 script = ExtResource("15_itv0g")
-displayTime = 2.0
+displayTime = 4.0
 
 [node name="DomaOutro5" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3700, -2901)
 texture = ExtResource("19_1wv5p")
 script = ExtResource("15_itv0g")
 displayTime = 2.0
+
+[node name="GameOver" type="Sprite2D" parent="Storyboard"]
+position = Vector2(-3714, 3202)
+texture = ExtResource("20_n6dg8")
+script = ExtResource("15_itv0g")
+displayTime = 1.0
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
 [connection signal="body_entered" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_entered"]
