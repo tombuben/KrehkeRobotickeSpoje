@@ -87,7 +87,7 @@ texture = ExtResource("4_il6mm")
 position = Vector2(674, 440)
 
 [node name="ona" parent="." instance=ExtResource("4_xgx00")]
-position = Vector2(952, 446)
+position = Vector2(924, 439)
 player = 2
 
 [node name="CameraCenterer" type="Node2D" parent="." node_paths=PackedStringArray("pos1", "pos2")]
