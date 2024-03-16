@@ -19,6 +19,7 @@ func _on_krabice_body_entered(body):
 		
 		
 func _ready():
+	Global.level = Global.levels.find(get_tree().current_scene.scene_file_path)
 	if not Global.LEVEL_CUTSCENE_FINISHED:	
 		play_level_intro()
 		

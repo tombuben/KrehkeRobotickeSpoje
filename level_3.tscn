@@ -17,10 +17,8 @@
 [ext_resource type="Script" path="res://StoryboardPlayer.gd" id="11_4s1fs"]
 [ext_resource type="Texture2D" uid="uid://bmkvdjqy6w6c5" path="res://art/storyboard/park/park_uvod.jpg" id="12_l4ceb"]
 [ext_resource type="Texture2D" uid="uid://b2sjmhwbkatxu" path="res://art/carry_stuff/krabice_rozbalena.png" id="12_lv37r"]
-[ext_resource type="Texture2D" uid="uid://byhjk86crg6l2" path="res://art/dite/ditetelo.png" id="13_rg167"]
 [ext_resource type="Texture2D" uid="uid://c0fuai8ej7745" path="res://art/storyboard/park/park_intro_1.jpg" id="13_s1v1l"]
 [ext_resource type="Script" path="res://storyboard.gd" id="14_4r3rw"]
-[ext_resource type="Texture2D" uid="uid://b48vvymwnywke" path="res://art/dite/ditekolo.png" id="14_r5m2d"]
 [ext_resource type="Texture2D" uid="uid://cna2ryes1bw81" path="res://art/ona/ona.jpg" id="15_divno"]
 [ext_resource type="Texture2D" uid="uid://byhjk86crg6l2" path="res://art/dite/ditetelo.png" id="15_resx6"]
 [ext_resource type="Texture2D" uid="uid://b4a0jgsgdndjs" path="res://art/ona/onaruka.png" id="16_apqk6"]
@@ -184,12 +182,12 @@ shape = SubResource("CapsuleShape2D_flju2")
 [node name="Sprite2D" type="Sprite2D" parent="Mimino/CollisionShape2D"]
 position = Vector2(0.137075, -19.0258)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("13_rg167")
+texture = ExtResource("15_resx6")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Mimino/CollisionShape2D"]
 position = Vector2(-1.72773, 50.13)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("14_r5m2d")
+texture = ExtResource("16_g05kt")
 
 [node name="GoalTarget" type="Area2D" parent="."]
 position = Vector2(3202, 368)

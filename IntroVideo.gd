@@ -12,8 +12,8 @@ func _process(delta):
 
 
 func _on_video_stream_player_finished():
-	get_tree().change_scene_to_file("res://level_1.tscn")
+	Global.progress_level()
 
 func _input(event):
 	if event.is_action_pressed("SwitchCamera"):
-		get_tree().change_scene_to_file("res://level_1.tscn")
+		Global.progress_level()
