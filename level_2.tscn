@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cv2vcdlx35fdb"]
+[gd_scene load_steps=27 format=3 uid="uid://cv2vcdlx35fdb"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_a48ek"]
 [ext_resource type="Script" path="res://KillBody.gd" id="2_e0cwa"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://pp3l8c23b4k1" path="res://art/storyboard/mesto/doma_outro_4.jpg" id="18_1gock"]
 [ext_resource type="Texture2D" uid="uid://cmxxk87b14yra" path="res://art/storyboard/mesto/doma_outro_5.jpg" id="19_1wv5p"]
 [ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="20_n6dg8"]
+[ext_resource type="AudioStream" uid="uid://3kltiwfwqqln" path="res://audio/Doh De Oh.mp3" id="22_dmyl8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fugcv"]
 shader = ExtResource("6_kmwe0")
@@ -204,6 +205,11 @@ position = Vector2(-3714, 3202)
 texture = ExtResource("20_n6dg8")
 script = ExtResource("15_itv0g")
 displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("22_dmyl8")
+autoplay = true
 
 [connection signal="body_entered" from="Krabice" to="." method="_on_krabice_body_entered"]
 [connection signal="body_entered" from="Krabice" to="Krabice/Node2D" method="_on_krabice_body_entered"]

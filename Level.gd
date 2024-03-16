@@ -3,6 +3,8 @@ extends Node2D
 @export var gameOverTextObject : Node2D
 @export var nacobicSisatosti: float
 
+@export var game_over_player : AudioStreamPlayer
+
 @onready var cameraSwitcher : CameraSwitcher = $CameraSwitcher
 @onready var sisoun : = $sisoun
 
@@ -11,6 +13,7 @@ var is_game_over = false
 func _on_krabice_body_entered(body):
 	if body is KillBody and is_game_over == false:
 		is_game_over = true
+		game_over_player.play()
 		game_over()
 		
 		
@@ -24,6 +27,8 @@ func _on_goal_target_body_entered(body):
 	if body.name == "Krabice" and is_game_over == false:
 		is_game_over = true
 		progress_stage()
+		
+		
 		
 func play_level_intro():
 	pause_game(true)
