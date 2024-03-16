@@ -22,7 +22,9 @@
 [ext_resource type="Script" path="res://storyboard.gd" id="14_4r3rw"]
 [ext_resource type="Texture2D" uid="uid://b48vvymwnywke" path="res://art/dite/ditekolo.png" id="14_r5m2d"]
 [ext_resource type="Texture2D" uid="uid://cna2ryes1bw81" path="res://art/ona/ona.jpg" id="15_divno"]
+[ext_resource type="Texture2D" uid="uid://byhjk86crg6l2" path="res://art/dite/ditetelo.png" id="15_resx6"]
 [ext_resource type="Texture2D" uid="uid://b4a0jgsgdndjs" path="res://art/ona/onaruka.png" id="16_apqk6"]
+[ext_resource type="Texture2D" uid="uid://b48vvymwnywke" path="res://art/dite/ditekolo.png" id="16_g05kt"]
 [ext_resource type="Texture2D" uid="uid://bopokpmxfmo11" path="res://art/ona/onapacka.png" id="17_dcnny"]
 [ext_resource type="Texture2D" uid="uid://cthr2qd7e12vc" path="res://art/ona/onatelo.png" id="18_sni5s"]
 [ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="19_j7lwc"]
@@ -208,7 +210,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("11_4s1fs")
 gameTitle = NodePath("../../Storyboard/TovarnaUvod")
-gameStart = [NodePath("../../Storyboard/BojODite1/TovarnaBoj1"), NodePath("../../Storyboard/BojODite2/TovarnaBoj2"), null]
+gameStart = [NodePath("../../Storyboard/BojODite1/TovarnaBoj1"), NodePath("../../Storyboard/BojODite2/TovarnaBoj2"), NodePath("../../Storyboard/BojODite3/TovarnaBoj3"), NodePath("../../Storyboard/BojODite4/TovarnaBoj4"), NodePath("../../Storyboard/BojODite5/TovarnaBoj5"), NodePath("../../Storyboard/BojODite6/TovarnaBoj6")]
 gameEnd = [null, null, null]
 gameOver = NodePath("../../Storyboard/GameOver")
 
@@ -234,12 +236,16 @@ script = ExtResource("14_4r3rw")
 displayTime = 3.0
 
 [node name="BojODite1" type="Node2D" parent="Storyboard"]
+position = Vector2(-9, 1430)
 
 [node name="TovarnaBoj1" type="Sprite2D" parent="Storyboard/BojODite1"]
 position = Vector2(-3700, -4616)
 texture = ExtResource("13_s1v1l")
 script = ExtResource("14_4r3rw")
 displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite1/TovarnaBoj1"]
+stream = ExtResource("15_c34un")
 
 [node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite1"]
 anchors_preset = -1
@@ -251,9 +257,21 @@ offset_right = -3422.0
 offset_bottom = -4441.0
 color = Color(0, 0, 0, 1)
 
+[node name="dite_boj_1" type="Sprite2D" parent="Storyboard/BojODite1"]
+position = Vector2(-3754, -4664)
+rotation = -1.6104
+scale = Vector2(0.08, 0.1)
+texture = ExtResource("15_resx6")
+
+[node name="dite_kolo" type="Sprite2D" parent="Storyboard/BojODite1/dite_boj_1"]
+position = Vector2(-36.6199, 739.422)
+scale = Vector2(0.8, 1)
+texture = ExtResource("16_g05kt")
+
 [node name="ona_boj_1" type="Node2D" parent="Storyboard/BojODite1"]
-position = Vector2(-3829, -4516)
+position = Vector2(-3785, -4518)
 rotation = -0.500867
+scale = Vector2(1, 1.19463)
 
 [node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite1/ona_boj_1"]
 visible = false
@@ -306,7 +324,7 @@ scale = Vector2(1.08738, 1.08738)
 texture = ExtResource("21_srbad")
 
 [node name="sisoun_boj_1" type="Node2D" parent="Storyboard/BojODite1"]
-position = Vector2(-3608, -4523)
+position = Vector2(-3537, -4526)
 rotation = -0.174533
 
 [node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite1/sisoun_boj_1"]
@@ -326,8 +344,8 @@ scale = Vector2(0.045, 0.045)
 texture = ExtResource("24_e0c0j")
 
 [node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite1/sisoun_boj_1"]
-position = Vector2(-51.7502, -144.177)
-rotation = 1.51291
+position = Vector2(-52.8517, -149.448)
+rotation = 1.81368
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("25_ycosf")
 
@@ -336,8 +354,8 @@ position = Vector2(-39.9999, 310)
 texture = ExtResource("26_77ich")
 
 [node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite1/sisoun_boj_1"]
-position = Vector2(-53.6008, -122.164)
-rotation = 4.78229
+position = Vector2(-53.9506, -137.457)
+rotation = 4.8829
 scale = Vector2(0.1, -0.1)
 texture = ExtResource("25_ycosf")
 
@@ -357,12 +375,15 @@ scale = Vector2(0.9625, 0.9625)
 texture = ExtResource("28_0j2bt")
 
 [node name="BojODite2" type="Node2D" parent="Storyboard"]
+position = Vector2(-9, 1430)
 
 [node name="TovarnaBoj2" type="Sprite2D" parent="Storyboard/BojODite2"]
 position = Vector2(-3700, -4226)
 texture = ExtResource("13_s1v1l")
 script = ExtResource("14_4r3rw")
 displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite2/TovarnaBoj2"]
 
 [node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite2"]
 anchors_preset = -1
@@ -374,8 +395,19 @@ offset_right = -3422.0
 offset_bottom = -4059.0
 color = Color(0, 0, 0, 1)
 
+[node name="dite_boj_1" type="Sprite2D" parent="Storyboard/BojODite2"]
+position = Vector2(-3733, -4270.42)
+rotation = -1.6104
+scale = Vector2(0.08, 0.1)
+texture = ExtResource("15_resx6")
+
+[node name="dite_kolo" type="Sprite2D" parent="Storyboard/BojODite2/dite_boj_1"]
+position = Vector2(-36.6199, 739.422)
+scale = Vector2(0.8, 1)
+texture = ExtResource("16_g05kt")
+
 [node name="ona_boj_1" type="Node2D" parent="Storyboard/BojODite2"]
-position = Vector2(-3805, -4220)
+position = Vector2(-3871, -4145.42)
 rotation = 0.261799
 
 [node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite2/ona_boj_1"]
@@ -429,7 +461,7 @@ scale = Vector2(1.08738, 1.08738)
 texture = ExtResource("21_srbad")
 
 [node name="sisoun_boj_1" type="Node2D" parent="Storyboard/BojODite2"]
-position = Vector2(-3592, -4189)
+position = Vector2(-3589, -4116)
 rotation = 0.261799
 
 [node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite2/sisoun_boj_1"]
@@ -478,6 +510,466 @@ texture = ExtResource("27_m8w77")
 position = Vector2(16.5, 433.35)
 scale = Vector2(0.9625, 0.9625)
 texture = ExtResource("28_0j2bt")
+
+[node name="BojODite3" type="Node2D" parent="Storyboard"]
+position = Vector2(-9, 1430)
+scale = Vector2(0.988375, 0.896271)
+
+[node name="TovarnaBoj3" type="Sprite2D" parent="Storyboard/BojODite3"]
+position = Vector2(-3700, -4226)
+texture = ExtResource("13_s1v1l")
+script = ExtResource("14_4r3rw")
+displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite3/TovarnaBoj3"]
+
+[node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite3"]
+anchors_preset = -1
+anchor_right = 1.058
+anchor_bottom = 0.394
+offset_left = -3985.0
+offset_top = -4428.0
+offset_right = -3422.0
+offset_bottom = -4059.0
+color = Color(0, 0, 0, 1)
+
+[node name="dite_boj_1" type="Sprite2D" parent="Storyboard/BojODite3"]
+position = Vector2(-3862.91, -4247.6)
+rotation = -1.6104
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_resx6")
+
+[node name="dite_kolo" type="Sprite2D" parent="Storyboard/BojODite3/dite_boj_1"]
+position = Vector2(-36.6199, 739.422)
+texture = ExtResource("16_g05kt")
+
+[node name="ona_boj_1" type="Node2D" parent="Storyboard/BojODite3"]
+position = Vector2(-3659.54, -4133.8)
+rotation = -0.409624
+
+[node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1"]
+visible = false
+position = Vector2(5, -65)
+scale = Vector2(0.115228, 0.115228)
+texture = ExtResource("15_divno")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1"]
+position = Vector2(24.3972, -121.453)
+rotation = -2.2843
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1/Sisoun-ruka-prava"]
+position = Vector2(-70, 220)
+texture = ExtResource("17_dcnny")
+flip_h = true
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1"]
+position = Vector2(25.3953, -148.637)
+rotation = 1.92691
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1/Sisoun-ruka-leva"]
+position = Vector2(-79.9995, 210)
+scale = Vector2(-1, 1)
+texture = ExtResource("17_dcnny")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1"]
+position = Vector2(-4, -108)
+scale = Vector2(0.112939, 0.112939)
+texture = ExtResource("18_sni5s")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1"]
+position = Vector2(0.845624, -169.846)
+scale = Vector2(0.110467, 0.110467)
+texture = ExtResource("19_rapbs")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1"]
+position = Vector2(-4, -42)
+scale = Vector2(0.112794, 0.112794)
+texture = ExtResource("20_lyubu")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Storyboard/BojODite3/ona_boj_1/Sisoun-noha"]
+position = Vector2(26.5972, 363.495)
+scale = Vector2(1.08738, 1.08738)
+texture = ExtResource("21_srbad")
+
+[node name="sisoun_boj_1" type="Node2D" parent="Storyboard/BojODite3"]
+position = Vector2(-3570, -4134)
+rotation = 0.270139
+
+[node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1"]
+visible = false
+position = Vector2(-4, -85)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("22_mdn6t")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1"]
+position = Vector2(1, -106)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("23_h3o8g")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1"]
+position = Vector2(0, -176)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("24_e0c0j")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1"]
+position = Vector2(-51.7502, -144.177)
+rotation = 1.51291
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("25_ycosf")
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1/Sisoun-ruka-prava"]
+position = Vector2(-39.9999, 310)
+texture = ExtResource("26_77ich")
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1"]
+position = Vector2(-53.6008, -122.164)
+rotation = 4.78229
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("25_ycosf")
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1/Sisoun-ruka-leva"]
+position = Vector2(-40, 300)
+scale = Vector2(-1, 1)
+texture = ExtResource("26_77ich")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1"]
+position = Vector2(0, -45.535)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("27_m8w77")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Storyboard/BojODite3/sisoun_boj_1/Sisoun-noha"]
+position = Vector2(16.5, 433.35)
+scale = Vector2(0.9625, 0.9625)
+texture = ExtResource("28_0j2bt")
+
+[node name="BojODite4" type="Node2D" parent="Storyboard"]
+position = Vector2(-29, 1769)
+scale = Vector2(0.988375, 0.896271)
+
+[node name="TovarnaBoj4" type="Sprite2D" parent="Storyboard/BojODite4"]
+position = Vector2(-3700, -4226)
+texture = ExtResource("13_s1v1l")
+script = ExtResource("14_4r3rw")
+displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite4/TovarnaBoj4"]
+
+[node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite4"]
+anchors_preset = -1
+anchor_right = 1.058
+anchor_bottom = 0.394
+offset_left = -3985.33
+offset_top = -4422.77
+offset_right = -3422.33
+offset_bottom = -4053.77
+color = Color(0, 0, 0, 1)
+
+[node name="dite_boj_1" type="Sprite2D" parent="Storyboard/BojODite4"]
+position = Vector2(-3758.7, -4294.46)
+rotation = -1.6104
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_resx6")
+
+[node name="dite_kolo" type="Sprite2D" parent="Storyboard/BojODite4/dite_boj_1"]
+position = Vector2(-36.6199, 739.422)
+texture = ExtResource("16_g05kt")
+
+[node name="ona_boj_1" type="Node2D" parent="Storyboard/BojODite4"]
+position = Vector2(-3480.46, -4197.39)
+rotation = -0.268916
+scale = Vector2(-1, 1)
+
+[node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1"]
+visible = false
+position = Vector2(5, -65)
+scale = Vector2(0.115228, 0.115228)
+texture = ExtResource("15_divno")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1"]
+position = Vector2(24.3972, -121.453)
+rotation = -2.2843
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1/Sisoun-ruka-prava"]
+position = Vector2(-70, 220)
+texture = ExtResource("17_dcnny")
+flip_h = true
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1"]
+position = Vector2(25.3953, -148.637)
+rotation = 1.92691
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1/Sisoun-ruka-leva"]
+position = Vector2(-79.9995, 210)
+scale = Vector2(-1, 1)
+texture = ExtResource("17_dcnny")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1"]
+position = Vector2(-4, -108)
+scale = Vector2(0.112939, 0.112939)
+texture = ExtResource("18_sni5s")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1"]
+position = Vector2(0.845624, -169.846)
+scale = Vector2(0.110467, 0.110467)
+texture = ExtResource("19_rapbs")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1"]
+position = Vector2(-4, -42)
+scale = Vector2(0.112794, 0.112794)
+texture = ExtResource("20_lyubu")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Storyboard/BojODite4/ona_boj_1/Sisoun-noha"]
+position = Vector2(26.5972, 363.495)
+scale = Vector2(1.08738, 1.08738)
+texture = ExtResource("21_srbad")
+
+[node name="Polygon2D" type="Polygon2D" parent="Storyboard/BojODite4"]
+polygon = PackedVector2Array(-3385.36, -4153.88, -3720.25, -4156.11, -3720.25, -4142.72, -3764.77, -4140.49, -3765.78, -4118.18, -3813.33, -4117.06, -3811.31, -4098.09, -3861.9, -4099.21, -3860.88, -4085.82, -3913.49, -4086.94, -3913.49, -4064.62, -4041.99, -4064.62, -4047.05, -4014.41, -4048.06, -3982.06, -3384.34, -3988.75)
+
+[node name="BojODite5" type="Node2D" parent="Storyboard"]
+position = Vector2(-42, 2278)
+scale = Vector2(0.988375, 0.896271)
+
+[node name="TovarnaBoj5" type="Sprite2D" parent="Storyboard/BojODite5"]
+position = Vector2(-3700, -4226)
+texture = ExtResource("13_s1v1l")
+script = ExtResource("14_4r3rw")
+displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite5/TovarnaBoj5"]
+
+[node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite5"]
+anchors_preset = -1
+anchor_right = 1.058
+anchor_bottom = 0.394
+offset_left = -3985.33
+offset_top = -4422.77
+offset_right = -3422.33
+offset_bottom = -4053.77
+color = Color(0, 0, 0, 1)
+
+[node name="dite_boj_1" type="Sprite2D" parent="Storyboard/BojODite5"]
+position = Vector2(-3874.04, -4209.67)
+rotation = -2.40152
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_resx6")
+
+[node name="dite_kolo" type="Sprite2D" parent="Storyboard/BojODite5/dite_boj_1"]
+position = Vector2(-36.62, 721.932)
+texture = ExtResource("16_g05kt")
+
+[node name="ona_boj_1" type="Node2D" parent="Storyboard/BojODite5"]
+position = Vector2(-3480.46, -4197.39)
+rotation = -0.268916
+scale = Vector2(-1, 1)
+
+[node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1"]
+visible = false
+position = Vector2(5, -65)
+scale = Vector2(0.115228, 0.115228)
+texture = ExtResource("15_divno")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1"]
+position = Vector2(-27.2529, -152.201)
+rotation = -3.92816
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1/Sisoun-ruka-prava"]
+position = Vector2(-70, 220)
+texture = ExtResource("17_dcnny")
+flip_h = true
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1"]
+position = Vector2(25.3953, -148.637)
+rotation = 1.92691
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1/Sisoun-ruka-leva"]
+position = Vector2(-79.9995, 210)
+scale = Vector2(-1, 1)
+texture = ExtResource("17_dcnny")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1"]
+position = Vector2(-4, -108)
+scale = Vector2(0.112939, 0.112939)
+texture = ExtResource("18_sni5s")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1"]
+position = Vector2(0.845624, -169.846)
+scale = Vector2(0.110467, 0.110467)
+texture = ExtResource("19_rapbs")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1"]
+position = Vector2(-4, -42)
+scale = Vector2(0.112794, 0.112794)
+texture = ExtResource("20_lyubu")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Storyboard/BojODite5/ona_boj_1/Sisoun-noha"]
+position = Vector2(26.5972, 363.495)
+scale = Vector2(1.08738, 1.08738)
+texture = ExtResource("21_srbad")
+
+[node name="Polygon2D" type="Polygon2D" parent="Storyboard/BojODite5"]
+polygon = PackedVector2Array(-3385.36, -4153.88, -3720.25, -4156.11, -3720.25, -4142.72, -3764.77, -4140.49, -3765.78, -4118.18, -3813.33, -4117.06, -3811.31, -4098.09, -3861.9, -4099.21, -3860.88, -4085.82, -3913.49, -4086.94, -3913.49, -4064.62, -4041.99, -4064.62, -4047.05, -4014.41, -4048.06, -3982.06, -3384.34, -3988.75)
+
+[node name="BojODite6" type="Node2D" parent="Storyboard"]
+position = Vector2(-130, 2817)
+scale = Vector2(0.988375, 0.896271)
+
+[node name="TovarnaBoj6" type="Sprite2D" parent="Storyboard/BojODite6"]
+position = Vector2(-3700, -4226)
+texture = ExtResource("13_s1v1l")
+script = ExtResource("14_4r3rw")
+displayTime = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite6/TovarnaBoj6"]
+
+[node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite6"]
+anchors_preset = -1
+anchor_right = 1.058
+anchor_bottom = 0.394
+offset_left = -3985.33
+offset_top = -4422.77
+offset_right = -3422.33
+offset_bottom = -4053.77
+color = Color(0, 0, 0, 1)
+
+[node name="dite_boj_1" type="Sprite2D" parent="Storyboard/BojODite6"]
+position = Vector2(-3882.13, -4155)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_resx6")
+
+[node name="dite_kolo" type="Sprite2D" parent="Storyboard/BojODite6/dite_boj_1"]
+position = Vector2(-0.00283432, 690.497)
+rotation = 0.0393708
+scale = Vector2(1.5, 0.6)
+texture = ExtResource("16_g05kt")
+
+[node name="sisoun_boj_1" type="Node2D" parent="Storyboard/BojODite6"]
+position = Vector2(-3504.74, -4184)
+rotation = -0.00230676
+
+[node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1"]
+visible = false
+position = Vector2(-4, -85)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("22_mdn6t")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1"]
+position = Vector2(1, -106)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("23_h3o8g")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1"]
+position = Vector2(0, -176)
+scale = Vector2(0.045, 0.045)
+texture = ExtResource("24_e0c0j")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1"]
+position = Vector2(38.9478, -174.024)
+rotation = 2.7667
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("25_ycosf")
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1/Sisoun-ruka-prava"]
+position = Vector2(-39.9999, 310)
+texture = ExtResource("26_77ich")
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1"]
+position = Vector2(-42.0948, -173.037)
+rotation = 6.19741
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("25_ycosf")
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1/Sisoun-ruka-leva"]
+position = Vector2(-40, 300)
+scale = Vector2(-1, 1)
+texture = ExtResource("26_77ich")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1"]
+position = Vector2(0, -45.535)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("27_m8w77")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Storyboard/BojODite6/sisoun_boj_1/Sisoun-noha"]
+position = Vector2(16.5, 433.35)
+scale = Vector2(0.9625, 0.9625)
+texture = ExtResource("28_0j2bt")
+
+[node name="ona_boj_1" type="Node2D" parent="Storyboard/BojODite6"]
+position = Vector2(-3571.52, -4190.57)
+rotation = -0.268916
+scale = Vector2(-1, 1)
+
+[node name="Sisoun-postava" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1"]
+visible = false
+position = Vector2(5, -65)
+scale = Vector2(0.115228, 0.115228)
+texture = ExtResource("15_divno")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1"]
+position = Vector2(-27.2529, -152.201)
+rotation = -3.92816
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1/Sisoun-ruka-prava"]
+position = Vector2(-70, 220)
+texture = ExtResource("17_dcnny")
+flip_h = true
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1"]
+position = Vector2(25.3953, -148.637)
+rotation = 1.26905
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("16_apqk6")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1/Sisoun-ruka-leva"]
+position = Vector2(-79.9995, 210)
+scale = Vector2(-1, 1)
+texture = ExtResource("17_dcnny")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1"]
+position = Vector2(-4, -108)
+scale = Vector2(0.112939, 0.112939)
+texture = ExtResource("18_sni5s")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1"]
+position = Vector2(0.845624, -169.846)
+scale = Vector2(0.110467, 0.110467)
+texture = ExtResource("19_rapbs")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1"]
+position = Vector2(-4, -42)
+scale = Vector2(0.112794, 0.112794)
+texture = ExtResource("20_lyubu")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Storyboard/BojODite6/ona_boj_1/Sisoun-noha"]
+position = Vector2(26.5972, 363.495)
+scale = Vector2(1.08738, 1.08738)
+texture = ExtResource("21_srbad")
+
+[node name="Polygon2D" type="Polygon2D" parent="Storyboard/BojODite6"]
+position = Vector2(91.0588, -2.10535)
+polygon = PackedVector2Array(-3385.36, -4153.88, -3720.25, -4156.11, -3720.25, -4142.72, -3764.77, -4140.49, -3765.78, -4118.18, -3813.33, -4117.06, -3811.31, -4098.09, -3861.9, -4099.21, -3860.88, -4085.82, -3913.49, -4086.94, -3913.49, -4064.62, -4041.99, -4064.62, -4047.05, -4014.41, -4048.06, -3982.06, -3384.34, -3988.75)
 
 [node name="GameOver" type="Sprite2D" parent="Storyboard"]
 position = Vector2(-3714, 3202)

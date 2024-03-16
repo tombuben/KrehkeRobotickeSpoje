@@ -27,5 +27,6 @@ func activate(board: storyboard):
 	if board != null:
 		global_position = board.global_position
 		make_current()
+		board.playAudio()
 		await get_tree().create_timer(board.displayTime).timeout
 		

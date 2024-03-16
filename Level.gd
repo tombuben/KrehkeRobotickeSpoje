@@ -13,7 +13,8 @@ var is_game_over = false
 func _on_krabice_body_entered(body):
 	if body is KillBody and is_game_over == false:
 		is_game_over = true
-		game_over_player.play()
+		if game_over_player is AudioStreamPlayer:
+			game_over_player.play()
 		game_over()
 		
 		
