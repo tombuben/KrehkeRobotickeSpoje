@@ -166,14 +166,13 @@ shape = SubResource("RectangleShape2D_iy1vu")
 script = ExtResource("11_n28tc")
 gameplayCamera = NodePath("../CameraCenterer/CharactersCamera")
 
-[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameEnd", "gameOver")]
+[node name="StoryboardPlayer" type="Camera2D" parent="CameraSwitcher" node_paths=PackedStringArray("gameTitle", "gameStart", "gameOver")]
 position = Vector2(-998, -1504)
 zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 script = ExtResource("12_hyrqr")
 gameTitle = NodePath("../../Storyboard/DomaUvod")
 gameStart = [NodePath("../../Storyboard/DomaIntro2temp/DomaIntro2"), NodePath("../../Storyboard/DomaIntro2temp2/DomaIntro2"), NodePath("../../Storyboard/DomaIntro2temp3/DomaIntro2"), NodePath("../../Storyboard/DomaIntro3"), NodePath("../../Storyboard/DomaIntro1")]
-gameEnd = [NodePath("../../Storyboard/DomaOutro2"), NodePath("../../Storyboard/DomaOutro3"), NodePath("../../Storyboard/DomaOutro4"), NodePath("../../Storyboard/DomaOutro5")]
 gameOver = NodePath("../../Storyboard/GameOver")
 
 [node name="Storyboard" type="Node2D" parent="."]
