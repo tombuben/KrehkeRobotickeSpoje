@@ -11,4 +11,5 @@ func _process(delta):
 	pass
 
 func _input(event):
-	get_tree().change_scene_to_file("res://IntroVideo.tscn")
+	if !event is InputEventMouseMotion and !event is InputEventJoypadMotion:
+		get_tree().change_scene_to_file("res://IntroVideo.tscn")
