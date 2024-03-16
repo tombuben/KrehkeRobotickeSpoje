@@ -100,6 +100,11 @@ position = Vector2(1415, 275)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_dgjjw")
 
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer"]
+position = Vector2(2281, 290)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("7_8xhop")
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
 motion_scale = Vector2(0.8, 0.8)
 motion_offset = Vector2(30, 0)
@@ -110,12 +115,12 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("6_m1xfc")
 
 [node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1835, 255)
+position = Vector2(1817, 363)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_yi0ws")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/ParallaxLayer2"]
-position = Vector2(1184, 278)
+position = Vector2(1094, 338)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_1dda0")
 

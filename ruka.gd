@@ -37,6 +37,7 @@ func _ready():
 	#init_ruka(player)
 	pass
 
+var time : float
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -47,4 +48,8 @@ func _physics_process(delta):
 			mover.rotate(lower_limit - mover.rotation)
 		if mover.rotation > upper_limit:
 			mover.rotate(upper_limit - mover.rotation)
+	
+	# hejbej rukama trosku at to neni tak nuda
+	time += delta
+	rotation = sin(time) * rotation_speed * 1.0
 		

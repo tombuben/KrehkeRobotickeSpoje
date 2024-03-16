@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://gc16iynedq5o"]
+
+[ext_resource type="Texture2D" uid="uid://cna2ryes1bw81" path="res://art/ona/ona.jpg" id="2_bybuu"]
+[ext_resource type="Texture2D" uid="uid://p1sbcuoqfn75" path="res://art/ona/onakolo.png" id="3_3jn6a"]
+[ext_resource type="Texture2D" uid="uid://b4a0jgsgdndjs" path="res://art/ona/onaruka.png" id="4_uqxqk"]
+[ext_resource type="Texture2D" uid="uid://bopokpmxfmo11" path="res://art/ona/onapacka.png" id="5_krpnq"]
+[ext_resource type="Texture2D" uid="uid://cthr2qd7e12vc" path="res://art/ona/onatelo.png" id="6_gql8u"]
+[ext_resource type="Texture2D" uid="uid://ceptg82arg2hg" path="res://art/ona/onahlava.png" id="7_6v6cj"]
+[ext_resource type="Texture2D" uid="uid://c0lwgq4gj68is" path="res://art/ona/onanoha.png" id="8_qioqh"]
+
+[node name="OnaRiggable" type="Node2D"]
+
+[node name="Sisoun-postava" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(5, -65)
+scale = Vector2(0.115228, 0.115228)
+texture = ExtResource("2_bybuu")
+
+[node name="Sisoun-ruka-prava" type="Sprite2D" parent="."]
+position = Vector2(-32.5319, -143.373)
+rotation = 0.959931
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_uqxqk")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Sisoun-ruka-prava"]
+position = Vector2(-70, 220)
+texture = ExtResource("5_krpnq")
+flip_h = true
+
+[node name="Sisoun-ruka-leva" type="Sprite2D" parent="."]
+position = Vector2(30.679, -143.012)
+rotation = 2.18166
+scale = Vector2(0.1, -0.1)
+texture = ExtResource("4_uqxqk")
+flip_h = true
+
+[node name="sisoun-packa-prava" type="Sprite2D" parent="Sisoun-ruka-leva"]
+position = Vector2(-79.9995, 210)
+scale = Vector2(-1, 1)
+texture = ExtResource("5_krpnq")
+
+[node name="Sisoun-telo" type="Sprite2D" parent="."]
+position = Vector2(-4, -108)
+scale = Vector2(0.112939, 0.112939)
+texture = ExtResource("6_gql8u")
+
+[node name="Sisoun-hlava" type="Sprite2D" parent="."]
+position = Vector2(0.845624, -169.846)
+scale = Vector2(0.110467, 0.110467)
+texture = ExtResource("7_6v6cj")
+
+[node name="Sisoun-noha" type="Sprite2D" parent="."]
+position = Vector2(-4, -42)
+scale = Vector2(0.112794, 0.112794)
+texture = ExtResource("8_qioqh")
+
+[node name="Sisoun-kolecko" type="Sprite2D" parent="Sisoun-noha"]
+position = Vector2(26.5972, 363.495)
+scale = Vector2(1.08738, 1.08738)
+texture = ExtResource("3_3jn6a")
