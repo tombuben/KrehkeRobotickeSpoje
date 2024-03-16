@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bengtiruay3eo"]
+[gd_scene load_steps=33 format=3 uid="uid://bengtiruay3eo"]
 
 [ext_resource type="PackedScene" uid="uid://d2myyy2dlm4ti" path="res://pandulak.tscn" id="1_1j5ko"]
 [ext_resource type="Script" path="res://Level.gd" id="1_cbap4"]
@@ -21,8 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://c0fuai8ej7745" path="res://art/storyboard/park/park_intro_1.jpg" id="12_c2snk"]
 [ext_resource type="Script" path="res://storyboard.gd" id="13_doyg1"]
 [ext_resource type="Texture2D" uid="uid://doi3la0c0mrr" path="res://art/storyboard/park/park_intro_2.jpg" id="14_xfy2c"]
+[ext_resource type="Texture2D" uid="uid://dd5munik4gvpu" path="res://art/trava/trava2.png" id="15_5a1ow"]
 [ext_resource type="Texture2D" uid="uid://bupuetdew7tg6" path="res://art/storyboard/park/park_outro_1.jpg" id="15_d117x"]
 [ext_resource type="Texture2D" uid="uid://ble8folajkggg" path="res://art/storyboard/park/park_outro_2.jpg" id="16_pror3"]
+[ext_resource type="Texture2D" uid="uid://egwl3bu6o6kk" path="res://art/trava/trava.png" id="16_sy6a4"]
 [ext_resource type="Texture2D" uid="uid://bvl8aag2ru7dp" path="res://art/storyboard/park/park_outro_3.jpg" id="17_unuie"]
 [ext_resource type="Texture2D" uid="uid://bqe6mocn50xv8" path="res://art/storyboard/game_over.png" id="24_yy2jp"]
 
@@ -163,6 +165,160 @@ texture = ExtResource("8_tc635")
 position = Vector2(3, 50)
 rotation = 1.51844
 shape = SubResource("CapsuleShape2D_jd27c")
+
+[node name="Trava" type="Node2D" parent="."]
+
+[node name="Trava2" type="Sprite2D" parent="Trava"]
+position = Vector2(830, 539.5)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava3" type="Sprite2D" parent="Trava"]
+position = Vector2(736, 530.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava4" type="Sprite2D" parent="Trava"]
+position = Vector2(654.5, 573.5)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava5" type="Sprite2D" parent="Trava"]
+position = Vector2(767.5, 602.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava6" type="Sprite2D" parent="Trava"]
+position = Vector2(470.5, 517)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava7" type="Sprite2D" parent="Trava"]
+position = Vector2(583.5, 546)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava8" type="Sprite2D" parent="Trava"]
+position = Vector2(19, 454)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava9" type="Sprite2D" parent="Trava"]
+position = Vector2(156, 472)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava10" type="Sprite2D" parent="Trava"]
+position = Vector2(64.5, 344)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava11" type="Sprite2D" parent="Trava"]
+position = Vector2(217.5, 375.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava12" type="Sprite2D" parent="Trava"]
+position = Vector2(273.5, 431)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava13" type="Sprite2D" parent="Trava"]
+position = Vector2(386.5, 460)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava14" type="Sprite2D" parent="Trava"]
+position = Vector2(1656, 530.5)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava15" type="Sprite2D" parent="Trava"]
+position = Vector2(1562, 521.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava16" type="Sprite2D" parent="Trava"]
+position = Vector2(1480.5, 564.5)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava17" type="Sprite2D" parent="Trava"]
+position = Vector2(1593.5, 593.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava18" type="Sprite2D" parent="Trava"]
+position = Vector2(908.5, 470)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava19" type="Sprite2D" parent="Trava"]
+position = Vector2(1061.5, 501.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava20" type="Sprite2D" parent="Trava"]
+position = Vector2(1117.5, 557)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava21" type="Sprite2D" parent="Trava"]
+position = Vector2(1230.5, 586)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava22" type="Sprite2D" parent="Trava"]
+position = Vector2(1786.5, 526)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava23" type="Sprite2D" parent="Trava"]
+position = Vector2(1939.5, 557.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava24" type="Sprite2D" parent="Trava"]
+position = Vector2(1995.5, 613)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava25" type="Sprite2D" parent="Trava"]
+position = Vector2(2108.5, 642)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava26" type="Sprite2D" parent="Trava"]
+position = Vector2(2085.5, 544)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava27" type="Sprite2D" parent="Trava"]
+position = Vector2(2238.5, 575.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava28" type="Sprite2D" parent="Trava"]
+position = Vector2(2294.5, 631)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava29" type="Sprite2D" parent="Trava"]
+position = Vector2(2407.5, 660)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava30" type="Sprite2D" parent="Trava"]
+position = Vector2(2434.5, 580.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava31" type="Sprite2D" parent="Trava"]
+position = Vector2(2490.5, 636)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava32" type="Sprite2D" parent="Trava"]
+position = Vector2(2603.5, 665)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava33" type="Sprite2D" parent="Trava"]
+position = Vector2(2580.5, 567)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava34" type="Sprite2D" parent="Trava"]
+position = Vector2(2733.5, 598.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava35" type="Sprite2D" parent="Trava"]
+position = Vector2(2870.5, 616.5)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava36" type="Sprite2D" parent="Trava"]
+position = Vector2(2926.5, 672)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava37" type="Sprite2D" parent="Trava"]
+position = Vector2(3039.5, 701)
+texture = ExtResource("16_sy6a4")
+
+[node name="Trava38" type="Sprite2D" parent="Trava"]
+position = Vector2(3016.5, 603)
+texture = ExtResource("15_5a1ow")
+
+[node name="Trava39" type="Sprite2D" parent="Trava"]
+position = Vector2(3169.5, 634.5)
+texture = ExtResource("16_sy6a4")
 
 [node name="CameraSwitcher" type="Node2D" parent="." node_paths=PackedStringArray("gameplayCamera")]
 script = ExtResource("6_ahpbm")
