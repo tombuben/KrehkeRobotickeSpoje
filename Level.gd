@@ -37,7 +37,7 @@ func pause_game(pause : bool):
 	get_tree().paused = pause
 	
 func play_level_outro():
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(2).timeout
 	await cameraSwitcher.activateOutro()
 
 func progress_stage():
