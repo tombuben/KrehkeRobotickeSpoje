@@ -245,7 +245,6 @@ script = ExtResource("14_4r3rw")
 displayTime = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Storyboard/BojODite1/TovarnaBoj1"]
-stream = ExtResource("15_c34un")
 
 [node name="ColorRect2" type="ColorRect" parent="Storyboard/BojODite1"]
 anchors_preset = -1
