@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://1wx3mh512bul"]
 
 [ext_resource type="Script" path="res://IntroVideo.gd" id="1_nea5k"]
-[ext_resource type="VideoStream" path="res://art/videa/main_menu.ogv" id="2_pacj0"]
+[ext_resource type="VideoStream" path="res://art/videa/tovarna_ending.ogv" id="2_hxkh2"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="3_hyu1h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rxgsc"]
@@ -21,7 +21,8 @@ offset_right = 799.0
 offset_bottom = 600.0
 grow_horizontal = 2
 grow_vertical = 2
-stream = ExtResource("2_pacj0")
+stream = ExtResource("2_hxkh2")
+volume_db = -20.0
 autoplay = true
 expand = true
 
