@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5xtdpca602by"
+path="res://.godot/imported/Fig Leaf Rag.mp3-9dd06f6eb788819c7e557d7d65246b40.mp3str"
+
+[deps]
+
+source_file="res://audio/Fig Leaf Rag.mp3"
+dest_files=["res://.godot/imported/Fig Leaf Rag.mp3-9dd06f6eb788819c7e557d7d65246b40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

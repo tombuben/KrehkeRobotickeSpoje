@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgvib30tkbifk"]
+[gd_scene load_steps=6 format=3 uid="uid://bgvib30tkbifk"]
 
 [ext_resource type="Texture2D" uid="uid://di7jiduejxsc8" path="res://art/Credits.jpg" id="1_iy474"]
 [ext_resource type="VideoStream" path="res://art/videa/konec.ogv" id="2_6qs2q"]
 [ext_resource type="Shader" path="res://old_movie.gdshader" id="3_1wkjx"]
+[ext_resource type="AudioStream" uid="uid://bv2wehohe3q7h" path="res://audio/Heroic Reception.mp3" id="4_c6obb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lxxv"]
 shader = ExtResource("3_1wkjx")
@@ -33,3 +34,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_c6obb")
+volume_db = -20.0
+autoplay = true
